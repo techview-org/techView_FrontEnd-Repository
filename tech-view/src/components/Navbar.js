@@ -1,33 +1,26 @@
-import { Link, useMatch, useResolvedPath } from 'react-router-dom'
-import React from 'react'
-import './Navbar.css'
-import logo from './logo.png'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom';
+import logo from "./logo.png"
 
-export default function Navbar () {
+
+export default function Navbar() {
+  const navigate = useNavigate()
   return (
-    <nav className='nav'>
-      <Link to='/' className='site-title'>
-        TECHVIEW
-        <img src={logo} alt='1' id='img' />
-      </Link>
-
-      <ul>
-        <CustomLink to='/pricing'>Community</CustomLink>
-        <CustomLink to='/about'>Log Out</CustomLink>
-      </ul>
-    </nav>
-  )
-}
-
-function CustomLink ({ to, children, ...props }) {
-  const resolvedPath = useResolvedPath(to)
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-
-  return (
-    <li className={isActive ? 'active' : ''}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
-  )
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Techview
+          </Typography>
+          <Button color="inherit" onClick= {()=>{navigate('/login')}}>Login</Button>
+          <Button color="inherit"onClick= {()=>{navigate('/signup')}}>Signup</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
