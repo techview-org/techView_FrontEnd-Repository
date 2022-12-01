@@ -1,10 +1,17 @@
-import HomePageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
-import MainPage from './components/mainPageWithLogin/MainPage'
-// import MainPage from './components/MainPage'
 
-function App () {
+import MainPage from './components/MainPage'
+import { Route, Routes } from 'react-router-dom'
+import Signup from './components/Signup'
+import Login from './components/Login'
+
+
+function App() {
   return (
-    <HomePageWithoutLogin />
+
+    <Routes>
+      <Route path='/signup' element={<Signup />} />
+      <Route path='/login' element = {<Login/>} />
+    </Routes>
     // <MainPage />
   )
 }
