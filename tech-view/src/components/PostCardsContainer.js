@@ -1,8 +1,8 @@
 import PostCard from './PostCard'
 
-export default function PostCardsContainer () {
+export default function PostCardsContainer() {
   const postContainerStyling = {
-    marginLeft: '160px', padding: '10px', display: 'flex', justifyContent: 'space-around', border: '2px solid red', flexWrap: 'wrap'
+    marginLeft: '160px', marginTop: '89px', padding: '10px', display: 'flex', justifyContent: 'space-around', border: '2px solid red', flexWrap: 'wrap'
   }
 
   return (
