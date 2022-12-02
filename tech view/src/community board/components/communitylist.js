@@ -1,18 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AppContext} from '../App.js'
+import { AppContext} from '../../App.js'
 import { Cards } from 'react-responsive-cards';
-import first from './first.jpg';
-import second from './second.jpg';
-import third from './third.jpg';
-
-
-
-
+import first from '../first.jpg';
+import second from '../second.jpg';
+import third from '../third.jpg';
 
 export default function Communitylist() {
     let valueFromFormInput = useContext(AppContext)
    
-
     const [data, setData] = useState("");
 
     const details = [
@@ -33,9 +28,6 @@ export default function Communitylist() {
     ]
 
     let map1 = details.map(v => {return <img src={v.image} alt="1" id="img"></img> })
-
-
-
     return (
         <div>
          <label htmlFor="searchInput">Enter a Search Term </label>
@@ -46,10 +38,7 @@ export default function Communitylist() {
                 valueFromFormInput.processInputUsingButton()
             }}>Search</button>
             
-          
            <div className="cards"><Cards details={details} /></div> 
-
-         
         </div>
     )
 }
