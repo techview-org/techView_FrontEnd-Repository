@@ -12,7 +12,6 @@ export default function HomePageWithoutLogin () {
       <BarWithBreakdownOfMissionStatement />
       <ImageWithDescriptionOfImage imgOnLeft imageSrc='' imageAlt='hello' descriptionOfImage='description of hello' />
       <ImageWithDescriptionOfImage imgOnLeft={false} imageSrc='' imageAlt='hi2' descriptionOfImage='description of hi part 2' />
-      <button style={{ display: 'flex', border: '1px solid black', margin: 'auto' }}>Signup Now!</button>
       <Footer />
     </>
   )
