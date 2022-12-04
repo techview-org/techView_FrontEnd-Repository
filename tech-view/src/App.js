@@ -5,8 +5,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import HomePageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
 
-
-function App() {
+function App () {
   return (
 
     <Routes>

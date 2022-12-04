@@ -3,6 +3,7 @@ import Footer from '../Footer'
 import TopPortionOfHomePage from './TopPortionOfHomePage'
 import BarWithBreakdownOfMissionStatement from './BarWithBreakdownOfMissionStatement'
 import ImageWithDescriptionOfImage from './ImageWithDescriptionOfImage'
+import pictureOfMainBoard from '../pictureOfMainBoard.png'
 
 export default function HomePageWithoutLogin () {
   return (
@@ -10,8 +11,8 @@ export default function HomePageWithoutLogin () {
       <Navbar />
       <TopPortionOfHomePage />
       <BarWithBreakdownOfMissionStatement />
-      <ImageWithDescriptionOfImage imgOnLeft imageSrc='' imageAlt='hello' descriptionOfImage='description of hello' />
-      <ImageWithDescriptionOfImage imgOnLeft={false} imageSrc='' imageAlt='hi2' descriptionOfImage='description of hi part 2' />
+      <ImageWithDescriptionOfImage imgOnLeft imageSrc={pictureOfMainBoard} imageAlt='hello' descriptionOfImage='Join our communtiy board today and contribute to the conversation' />
+      <ImageWithDescriptionOfImage imgOnLeft={false} imageSrc={pictureOfMainBoard} imageAlt='hello' descriptionOfImage='Join our communtiy board today and contribute to the conversation' />
       <Footer />
     </>
   )
