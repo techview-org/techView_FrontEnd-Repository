@@ -1,45 +1,36 @@
-import {useState, useEffect} from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
+const LoginPageButton = () => {
+  const [user1, setUser] = useState({})
+  const navigate = useNavigate()
 
-const LoginPageButton = () =>{
+  function handleSubmit (event) {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    console.log({
+      email: data.get('email'),
+      password: data.get('password')
+    })
 
-    const [user1, setUser] = useState({})
-    const navigate = useNavigate();
-
-    function handleSubmit (event)  {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-      });
-        
-     
-      fetch(`http://localhost:4005/${data.get('email')}/${data.get('password')}`)
+    fetch(`http://localhost:4005/${data.get('email')}/${data.get('password')}`)
       .then(response => response.json())
-      .then(data=> {
+      .then(data => {
         console.log(data.data)
-        window.localStorage.setItem("user", data)
-        window.localStorage.setItem("email", data)
-        window.localStorage.setItem("password", data)
-        window.localStorage.setItem("badge", data)
+        window.localStorage.setItem('user', data)
+        window.localStorage.setItem('email', data)
+        window.localStorage.setItem('password', data)
+        window.localStorage.setItem('badge', data)
       })
-  
-    
-        navigate("/")
-    
 
-    }
+    navigate('/')
+  }
 
-    return (
-        <div>
-        <button className="signUp" onClick = {handleSubmit}> Sign up </button>
-       </div> 
-    )
-
-
+  return (
+    <div>
+      <button className='signUp' onClick={handleSubmit}> Sign up </button>
+    </div>
+  )
 }
-
 
 export default LoginPageButton
