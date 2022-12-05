@@ -8,11 +8,12 @@ import { getPosts } from './actions/posts';
 import useStyles from './styles';
 import memories from './images/memories.png';
 import { Cards } from 'react-responsive-cards';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 
 import first from './first.jpg';
 import second from './second.jpg';
 import third from './third.jpg';
-
 
 const details = [
   {
@@ -43,9 +44,9 @@ const App = () => {
   }, [currentId, dispatch]);
 
   return (
-    
+  
     <Container maxWidth="lg">
-          <Cards details={details}  />
+    <Cards details={details} />
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">Posts</Typography>
         <img className={classes.image} src={memories} alt="icon" height="60" />
@@ -63,8 +64,9 @@ const App = () => {
           
         </Container>
       </Grow>
-      
+    
     </Container>
+   
     
   );
 };
