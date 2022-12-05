@@ -2,15 +2,15 @@ import PostCard from './PostCard'
 
 export default function PostCardsContainer () {
   const postContainerStyling = {
-    marginLeft: '160px', marginTop: '89px', padding: '10px', display: 'flex', justifyContent: 'space-around', border: '2px solid red', flexWrap: 'wrap'
+    padding: '20px', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'space-around', flexWrap: 'wrap'
   }
 
   return (
     <div style={postContainerStyling}>
-      <PostCard user='Emmanuel' message='Hello World!' />
-      <PostCard user='Wayne' message='I hate Cris P.' />
-      <PostCard user='Aaron' message='papucho!' />
-      <PostCard user='Cris' message='2-1' />
+      <PostCard user='Emmanuel' message='Post 1' />
+      <PostCard user='Wayne' message='Post 2' />
+      <PostCard user='Aaron' message='Post 3' />
+      <PostCard user='Cris' message='Post 4' />
     </div>
   )
 }
