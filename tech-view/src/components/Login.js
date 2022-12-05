@@ -14,6 +14,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navbar from './Navbar';
+import { useNavigate} from 'react-router-dom';
+import {useState, useEffect} from 'react'
+
 
 
 function Copyright(props) {
@@ -31,14 +34,38 @@ function Copyright(props) {
 
 const theme = createTheme();
 
+
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+
+  const navigate = useNavigate();
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+      
+   
+    fetch(`http://localhost:4005/${data.get('email')}/${data.get('password')}`)
+    .then(response => response.json())
+    .then(data=> {
+      console.log(data.data)
+
+      if(!data.data){
+        return false
+      } else {
+        window.localStorage.setItem("user", data)
+        window.localStorage.setItem("email", data)
+        window.localStorage.setItem("password", data)
+        window.localStorage.setItem("badge", data)
+        navigate("/")
+      }
+    
+    })
+
+     
+
   };
 
   return (

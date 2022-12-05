@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate} from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -31,13 +32,28 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      username: data.get("firstName")
     });
+    fetch(`http://localhost:4005/new_user`, {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({ "username": data.get('firstName'), "email": data.get("email"), "password": data.get('password'), "badged_id":1})
+  }).then(response=> response.json())
+  .then(data=> {console.log(data[0])
+      navigate('/login') }
+  )
+
   };
 
   return (
@@ -68,7 +84,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="username"
                   autoFocus
                 />
               </Grid>

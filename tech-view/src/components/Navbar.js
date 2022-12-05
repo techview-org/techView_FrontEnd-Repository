@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import logo from "./logo.png"
 
 
@@ -15,7 +15,10 @@ export default function Navbar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Techview
+            <Link style ={{
+              textDecoration: 'none', 
+              color : 'white'
+            }}to='/'>Techview</Link>
           </Typography>
           <Button color="inherit" onClick= {()=>{navigate('/login')}}>Login</Button>
           <Button color="inherit"onClick= {()=>{navigate('/signup')}}>Signup</Button>
