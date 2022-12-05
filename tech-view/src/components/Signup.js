@@ -1,19 +1,20 @@
+import * as React from 'react';
+import Navbar from './Navbar';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate} from 'react-router-dom';
 
-import * as React from 'react'
-import Navbar from './Navbar'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
-import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 function Copyright (props) {
   return (
@@ -30,15 +31,30 @@ function Copyright (props) {
 
 const theme = createTheme()
 
-export default function SignUp () {
+
+export default function SignUp() {
+
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     console.log({
       email: data.get('email'),
-      password: data.get('password')
-    })
-  }
+      password: data.get('password'),
+      username: data.get("firstName")
+    });
+    fetch(`http://localhost:4005/new_user`, {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({ "username": data.get('firstName'), "email": data.get("email"), "password": data.get('password'), "badged_id":1})
+  }).then(response=> response.json())
+  .then(data=> {console.log(data[0])
+      navigate('/login') }
+  )
+
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,8 +83,9 @@ export default function SignUp () {
                   name='firstName'
                   required
                   fullWidth
-                  id='firstName'
-                  label='First Name'
+
+                  id="firstName"
+                  label="username"
                   autoFocus
                 />
               </Grid>
