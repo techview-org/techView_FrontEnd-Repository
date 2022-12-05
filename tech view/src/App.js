@@ -46,6 +46,7 @@ const App = () => {
   return (
   
     <Container maxWidth="lg">
+
     <Cards details={details} />
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">Posts</Typography>
