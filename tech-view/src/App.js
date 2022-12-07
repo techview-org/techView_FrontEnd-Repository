@@ -3,6 +3,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import HomepageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
 import MainPage from './components/mainPageWithLogin/MainPage'
+import ProfilePage from './components/profilePage/ProfilPage'
 
 function App () {
   return (
