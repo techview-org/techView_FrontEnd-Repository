@@ -16,7 +16,7 @@ export default function PostCardsContainer () {
 
   return (
     <div style={postContainerStyling}>
-      {posts.length !== 0 && posts.map(x => <PostCard user={x.user_id} message={x.post_description} />)}
+      {posts.length !== 0 && posts.map(x => <PostCard user={x.username} message={x.post_description} />)}
     </div>
   )
 }
