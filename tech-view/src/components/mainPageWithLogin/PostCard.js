@@ -8,7 +8,6 @@ export default function PostCard ({ user, message }) {
     <div style={{ border: '1px solid black', width: '80%', margin: '10px 0' }}>
       <h3>Post</h3>
       <PostInfo user={user} message={message} />
-      <LikeAndCommentButtonContainer />
     </div>
   )
 }

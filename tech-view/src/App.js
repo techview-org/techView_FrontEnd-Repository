@@ -9,10 +9,10 @@ function App () {
   return (
 
     <Routes>
-      <Route path='/' element={<HomepageWithoutLogin />} />
+      <Route path='/' element={<MainPage />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/mainpage' element={<MainPage/>} /> 
+      <Route path='/mainpage' element={<MainPage />} />
     </Routes>
     // <MainPage />
   )
