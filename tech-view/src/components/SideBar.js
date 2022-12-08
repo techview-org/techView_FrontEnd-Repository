@@ -1,14 +1,14 @@
 export default function SideBar () {
   const sidebarStyling = {
-    height: '100%',
+    height: '100vh',
     width: '160px',
-    position: 'fixed',
+    position: 'sticky',
     zIndex: -1,
     top: 'auto',
     left: 0,
     backgroundColor: 'black',
     overflowX: 'hidden',
-    paddingTop: '20px'
+    paddingTop: '0'
   }
 
   const sideBarItemStyling = {

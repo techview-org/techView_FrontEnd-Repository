@@ -6,25 +6,23 @@ import Footer from '../Footer'
 import Modal from './modal'
 import React, { useState } from 'react';
 import useModal from './useModal'
+import './Modal.css'
+import Render from './post.js'
+import './App.css'
 
 
 
-export default function MainPage () {
-  
-  const {isShowing, toggle} = useModal();
+export default function MainPage() {
+
+  const { isShowing, toggle } = useModal();
 
   return (
-    
+
     <>
       <Navbar />
       <SideBar />
       <dropdown />
-      <button
-        className="openModalBtn"
-        onClick={() => {
-        toggle
-        }}
-      >
+      <button className="button-default" onClick={toggle}>
         Create A New Post
       </button>
 
@@ -32,13 +30,14 @@ export default function MainPage () {
         isShowing={isShowing}
         hide={toggle}
       />
-      <PostCardsContainer />
+     <div><Render/>
+     <div><PostCardsContainer /></div></div> 
       <Footer />
     </>
   )
 }
 
-function dropdown () {
+function dropdown() {
   return (
     <>
       <label for='categories'>Filter</label>

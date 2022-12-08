@@ -3,40 +3,22 @@ import "./Modal.css";
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
-  const [modalOpen, setOpenModal] = useState(false);
 
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button
-            onClick={() => {
-              hide
-            }}
-          >
-            X
+const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
+  <React.Fragment>
+    <div className="modal-overlay"/>
+    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+      <div className="modal">
+        <div className="modal-header">
+          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
+            <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="title">
-          <h1>What's on your mind today?</h1>
-        </div>
-        <div className="body">
-         <Render/>
-        </div>
-        <div className="footer">
-          <button
-            onClick={() => {
-             hide
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button>Continue</button>
-        </div>
+        <Render/>
       </div>
     </div>
-  ):null
+  </React.Fragment>, document.body
+) : null
 
 export default Modal;
 
