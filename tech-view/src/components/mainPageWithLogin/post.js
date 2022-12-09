@@ -3,7 +3,7 @@ import React, { Component ,useState} from 'react';
 // import useModal from './useModal';
 import Modal from './modal';
 
-const categories = ['Behavioral', 'LeetCode 75', 'Technical', 'Other'];
+const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 // const [isShowing, setIsShowing] = useState(false);
 
 // function toggle() {

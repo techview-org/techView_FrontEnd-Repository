@@ -12,12 +12,13 @@ function SideBar () {
     position: 'fixed',
     marginLeft: "0px",
     zIndex: -1,
-    top: 115,
+    top: -200,
     left: 0,
+    paddingTop:350,
     backgroundColor: 'black',
     color:"aqua",
-    overflowX: 'hidden',
-    paddingTop: '885'
+    overflowX: 'hidden'
+    
   }
 
   const sideBarItemStyling = {

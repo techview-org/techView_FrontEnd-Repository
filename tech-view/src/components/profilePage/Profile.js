@@ -10,8 +10,8 @@ export default function Profile() {
         <Navbar/>
             <div className="card">
                 <img src={img} alt="Profile picture" style={{width:"100%"}}/>
-                <h1 className="username">{ localStorage.user }</h1>
-                <p className="email">{ localStorage.email }</p>
+                <h1 className="username">Wayne</h1>
+                <p className="email">world@gmail.com</p>
                 <button>Change email</button>
             </div>
             <Footer/>

@@ -40,9 +40,9 @@ export default function Navbar () {
           <Button color='inherit' onClick={() => { navigate('/Profile') }}>Profile</Button>
           <Button color='inherit' onClick={() => { navigate('/login') }}>Login</Button>
     
-          <Button color='inherit' onClick={() => { navigate('/Community') }}>Community</Button>
+       
           
-          <Button color='inherit' onClick={() => { navigate('/signup') }}>Sign Out</Button>
+          <Button color='inherit' onClick={() => { navigate('/signup') }}>Sign Up</Button>
         </Toolbar>
       </AppBar>
     </Box>
