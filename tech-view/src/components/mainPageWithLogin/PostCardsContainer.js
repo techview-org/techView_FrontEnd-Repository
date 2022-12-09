@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import PostCard from './PostCard'
 
-export default function PostCardsContainer () {
+export default function PostCardsContainer({ posts, setPosts }) {
   const postContainerStyling = {
     padding: '20px', display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'space-around', flexWrap: 'wrap'
   }
 
-  const [posts, setPosts] = useState([])
+  // const [posts, setPosts] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:4005/post')

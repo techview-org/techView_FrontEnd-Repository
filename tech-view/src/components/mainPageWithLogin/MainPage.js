@@ -5,9 +5,21 @@ import Footer from '../Footer'
 import Dropdown from './Dropdown'
 import { useEffect, useState } from 'react'
 
-export default function MainPage () {
-  // isPosted is meant to be a boolean, set isPosted to true when post is submitted
+export default function MainPage() {
+  const [posts, setPosts] = useState([])
+  // isPosted and isFiltered are meant to be booleans, set isPosted to true when post is submitted
   const [isPosted, setIsPosted] = useState(false)
+  const [isFiltered, setIsFiltered] = useState(false)
+  //categoryToFilterBy is meant to only be changed to one of the three given categories given: Behavioral, Technical, or LeetCode75
+  const [categoryToFilterBy, setCategory] = useState()
+
+  useEffect(() => {
+    if (isFiltered) {
+      fetch(`http://localhost:4005/post/${categoryToFilterBy}`)
+        .then(res => res.json())
+        .then(json => setPosts(json))
+    }
+  }, [categoryToFilterBy])
 
   useEffect(() => {
     if (isPosted) {
@@ -29,9 +41,9 @@ export default function MainPage () {
   return (
     <>
       <Navbar />
-      <Dropdown />
+      <Dropdown setIsFiltered={setIsFiltered} setCategory={setCategory} />
       <button onClick={() => { setIsPosted(true) }}>Create a New Post</button>
-      <PostCardsContainer />
+      <PostCardsContainer posts={posts} setPosts={setPosts} />
       <Footer />
     </>
   )
