@@ -7,12 +7,21 @@ import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from './logo.png'
 
+// import HomepageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
+
 export default function Navbar () {
   const navigate = useNavigate()
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
-        <Toolbar>
+        <Toolbar style={{
+                display:"flex",
+                margin:"20px",
+                height:"70px",
+                position:"relative",
+                top:"0px"
+                
+              }}>
 
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             <Link
@@ -22,10 +31,18 @@ export default function Navbar () {
               }} to='/'
             >Techview
             </Link>
+            <img src={logo} alt='1' id='img'  style={{ width:"100px",
+  height:"100px",
+  marginLeft: "5px"}} />
 
           </Typography>
+          <Button color='inherit' onClick={() => { navigate('/Home') }}>Home</Button>
+          <Button color='inherit' onClick={() => { navigate('/Profile') }}>Profile</Button>
           <Button color='inherit' onClick={() => { navigate('/login') }}>Login</Button>
-          <Button color='inherit' onClick={() => { navigate('/signup') }}>Signup</Button>
+    
+       
+          
+          <Button color='inherit' onClick={() => { navigate('/signup') }}>Sign Up</Button>
         </Toolbar>
       </AppBar>
     </Box>
