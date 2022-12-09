@@ -5,6 +5,7 @@ import Login from './components/Login'
 import MainPage from './components/mainPageWithLogin/MainPage';
 import Community from './components/Community/Community';
 import HomePageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin';
+import Profile from './components/profilePage/Profile';
 
 function App () {
   return (
@@ -14,6 +15,7 @@ function App () {
       <Route path='/' element={<MainPage />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/profile' element={<Profile />} />
       <Route path='/Home' element={<HomePageWithoutLogin />} />
   
     </Routes>

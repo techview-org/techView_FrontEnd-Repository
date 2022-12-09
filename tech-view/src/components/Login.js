@@ -53,7 +53,7 @@ export default function SignInSide () {
           window.localStorage.setItem('email', data)
           window.localStorage.setItem('password', data)
           window.localStorage.setItem('badge', data)
-          navigate('/')
+          navigate('/mainpage')
         }
       })
   }
