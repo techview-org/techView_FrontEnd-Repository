@@ -1,4 +1,4 @@
-export default function Dropdown({ setIsFiltered, setCategory }) {
+export default function Dropdown ({ setIsFiltered, setCategory }) {
   const setFilter = (func1, func2) => {
     return (e) => {
       e.preventDefault()

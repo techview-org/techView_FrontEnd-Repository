@@ -5,12 +5,12 @@ import Footer from '../Footer'
 import Dropdown from './Dropdown'
 import { useEffect, useState } from 'react'
 
-export default function MainPage() {
+export default function MainPage () {
   const [posts, setPosts] = useState([])
   // isPosted and isFiltered are meant to be booleans, set isPosted to true when post is submitted
   const [isPosted, setIsPosted] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false)
-  //categoryToFilterBy is meant to only be changed to one of the three given categories given: Behavioral, Technical, or LeetCode75
+  // categoryToFilterBy is meant to only be changed to one of the three given categories given: Behavioral, Technical, or LeetCode75
   const [categoryToFilterBy, setCategory] = useState()
 
   useEffect(() => {
