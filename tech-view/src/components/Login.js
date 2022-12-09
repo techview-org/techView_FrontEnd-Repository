@@ -49,10 +49,9 @@ export default function SignInSide () {
         if (!data.data) {
           return false
         } else {
-          window.localStorage.setItem('user', data)
-          window.localStorage.setItem('email', data)
-          window.localStorage.setItem('password', data)
-          window.localStorage.setItem('badge', data)
+          window.localStorage.setItem('user', data.data.username)
+          window.localStorage.setItem('email', data.data.email)
+          window.localStorage.setItem('badge', data.data.badged_id)
           navigate('/mainpage')
         }
       })

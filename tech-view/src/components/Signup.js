@@ -13,9 +13,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
+import {useState} from 'react'
+
 
 function Copyright (props) {
+ 
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
       {'Copyright © '}
@@ -31,6 +34,15 @@ function Copyright (props) {
 const theme = createTheme()
 
 export default function SignUp () {
+  const mystyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "15px 32px",
+    fontFamily: "Arial"
+  };
+
+  const [userName, setUsername] = useState("RandomUsername")
+
   const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -76,26 +88,21 @@ export default function SignUp () {
           <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete='given-name'
-                  name='firstName'
-                  required
-                  fullWidth
 
-                  id='firstName'
-                  label='username'
-                  autoFocus
-                />
+              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Enter a Search Term </label>
+              <div contenteditable="true">{userName}</div> 
+            {/* <input type="text" className="form-control" id="searchInput" /> */}
+            <button type="button" className="btn btn-success" >Search</button>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   id='lastName'
                   label='Last Name'
                   name='lastName'
                   autoComplete='family-name'
-                />
+                /> */}
               </Grid>
               <Grid item xs={12}>
                 <TextField

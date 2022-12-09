@@ -5,10 +5,11 @@ import BarWithBreakdownOfMissionStatement from './BarWithBreakdownOfMissionState
 import ImageWithDescriptionOfImage from './ImageWithDescriptionOfImage'
 import pictureOfMainBoard from '../pictureOfMainBoard.png'
 
+
 export default function HomePageWithoutLogin () {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <TopPortionOfHomePage />
       <BarWithBreakdownOfMissionStatement />
       <ImageWithDescriptionOfImage imgOnLeft imageSrc={pictureOfMainBoard} imageAlt='hello' descriptionOfImage='Join our communtiy board today and contribute to the conversation' />
