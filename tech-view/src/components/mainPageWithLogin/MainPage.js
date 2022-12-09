@@ -10,7 +10,7 @@ import './Modal.css'
 import Render from './post.js'
 import './post.css'
 
-
+import Chatbox from './chatbox'
 
 export default function MainPage() {
 
@@ -21,7 +21,7 @@ export default function MainPage() {
     <>
       <Navbar />
     <div><Render /> </div> <SideBar /><div></div>
-    
+    <Chatbox/>
       <Footer />
     </>
   )

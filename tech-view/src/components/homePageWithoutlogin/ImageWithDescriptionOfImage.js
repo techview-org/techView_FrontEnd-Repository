@@ -4,8 +4,9 @@ export default function ImageWithDescriptionOfImage ({ imgOnLeft, imageSrc, imag
   const textStyling = {
     padding: '40px',
     fontFamily: 'Monospace',
-    fontSize: '20px',
-    fontWeight: 'bold'
+    fontSize: '50px',
+    fontWeight: 'bold',
+    color:"aqua"
   }
 
   const mainDivStyling = {
@@ -24,8 +25,8 @@ export default function ImageWithDescriptionOfImage ({ imgOnLeft, imageSrc, imag
   } else {
     return (
       <div style={mainDivStyling}>
-        <p style={textStyling}>{descriptionOfImage}</p>
-        <img src={imageSrc} alt={imageAlt} />
+        <p style={textStyling}>Our Main Forum Board helps users build community and feel at Home.</p>
+    
       </div>
     )
   }

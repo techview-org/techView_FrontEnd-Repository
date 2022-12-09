@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from './logo.png'
-import Community from './Community/Community'
+
 // import HomepageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
 
 export default function Navbar () {
@@ -37,6 +37,7 @@ export default function Navbar () {
 
           </Typography>
           <Button color='inherit' onClick={() => { navigate('/Home') }}>Home</Button>
+          <Button color='inherit' onClick={() => { navigate('/Profile') }}>Profile</Button>
           <Button color='inherit' onClick={() => { navigate('/login') }}>Login</Button>
     
           <Button color='inherit' onClick={() => { navigate('/Community') }}>Community</Button>

@@ -7,17 +7,17 @@ function SideBar () {
 
   const navigate = useNavigate()
   const sidebarStyling = {
-    height: '100vh',
+    height: '1000px',
     width: '160px',
-    position: 'sticky',
+    position: 'fixed',
     marginLeft: "0px",
     zIndex: -1,
-    top: 'auto',
+    top: 115,
     left: 0,
     backgroundColor: 'black',
     color:"aqua",
     overflowX: 'hidden',
-    paddingTop: '0'
+    paddingTop: '885'
   }
 
   const sideBarItemStyling = {
@@ -26,10 +26,10 @@ function SideBar () {
 
   return (
     <div style={sidebarStyling}>
-      <Button color='inherit' onClick={() => { navigate('/Home') }}>users</Button>
+      <Button color='inherit' onClick={() => { navigate('/Home') }}>Users</Button>
           <Button color='inherit' onClick={() => { navigate('/login') }}>Latest News</Button>
     
-          <Button color='inherit' onClick={() => { navigate('/Community') }}>Companies</Button>
+          <Button color='inherit' onClick={() => { navigate('/Community') }}>Success Stories</Button>
     </div>
   )
 }

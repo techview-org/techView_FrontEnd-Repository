@@ -7,7 +7,7 @@ margin-left:250px;
   padding: 20px;
   color: black;
   font-weight: 500;
- z-index: 1;
+ z-index: -1;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
   width:70%;
 }
@@ -17,14 +17,14 @@ margin-left:250px;
   padding: 20px;
   width:70%;
   margin-left:250px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .content {
   margin-left: 5px;
   width:70%;
   margin-left:250px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .User{
