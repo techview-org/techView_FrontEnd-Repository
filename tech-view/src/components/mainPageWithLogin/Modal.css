@@ -2,9 +2,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
   background-color: blue;
   opacity: .5;
 }
@@ -13,7 +13,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -22,7 +22,7 @@
 }
 
 .modal {
-  z-index: -1;
+  z-index: 1;
   background: white;
   position: relative;
   margin: 1.75rem auto;

@@ -1,5 +1,5 @@
 import Navbar from '../Navbar'
-import PostCardsContainer from './PostCardsContainer'
+
 import SideBar from '../SideBar'
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
@@ -8,30 +8,20 @@ import React, { useState } from 'react';
 import useModal from './useModal'
 import './Modal.css'
 import Render from './post.js'
-import './App.css'
+import './post.css'
 
 
 
 export default function MainPage() {
 
-  const { isShowing, toggle } = useModal();
+
 
   return (
 
     <>
       <Navbar />
-      <SideBar />
-      <dropdown />
-      <button className="button-default" onClick={toggle}>
-        Create A New Post
-      </button>
-
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
-     <div><Render/>
-     <div><PostCardsContainer /></div></div> 
+    <div><Render /> </div> <SideBar /><div></div>
+    
       <Footer />
     </>
   )

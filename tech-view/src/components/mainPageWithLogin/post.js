@@ -1,7 +1,16 @@
-import './App.css';
-import React, { Component } from 'react';
+import './post.css';
+import React, { Component ,useState} from 'react';
+// import useModal from './useModal';
+import Modal from './modal';
 
 const categories = ['Behavioral', 'LeetCode 75', 'Technical', 'Other'];
+// const [isShowing, setIsShowing] = useState(false);
+
+// function toggle() {
+//   setIsShowing(!isShowing);
+// }
+
+
 
 class Render extends Component {
   render() {
@@ -30,6 +39,10 @@ class Feed extends Component {
     this.setState({posts: posts});
     localStorage.setItem('posts', JSON.stringify(posts));
     localStorage.setItem('', JSON.stringify(""));
+    setTimeout(()=>{
+      this.setState({posts: ""});
+    },5000)
+
   }
 
   handleFilter(filter) {
@@ -50,9 +63,10 @@ class Feed extends Component {
     );
     return (
       <div className="feed">
+         <PostForm onSubmit={this.handleNewPost} />
         <Filter onFilter={this.handleFilter} />
         {filteredPosts.length > 0 ? filteredPosts : posts}
-        <PostForm onSubmit={this.handleNewPost} />
+       
       </div>
     )
   }
@@ -61,9 +75,14 @@ class Feed extends Component {
 class Post extends Component {
   render() {
     return (
+      
       <div className="post">
+        <span className="User">User: Wayne</span>
         <span className="label">{this.props.value.category}</span>
+        <span className="Title">   Title: {this.props.value.title}</span>
         <span className="content">{this.props.value.content}</span>
+        <span className="Time">{this.props.value.date}</span>
+      
       </div>
     )
   }
@@ -78,16 +97,23 @@ class PostForm extends Component {
   handleSubmit(event) {
     this.props.onSubmit({
       category: this.category.value,
-      content: this.content.value
+      content: this.content.value,
+      title: this.title.value
     });
     this.category.value = categories[0];
     this.content.value = '';
+    this.title.value = "";
+    this.date.value = new Date().getDate
     event.preventDefault();
   }
 
   render() {
     return (
+      
       <div className="post-form">
+        <div className="button-default" >
+        Create A New Post
+      </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             Category:
@@ -96,6 +122,10 @@ class PostForm extends Component {
                 <option key={category} value={category}>{category}</option>
               )}
             </select>
+          </label>
+          <label>
+            Title:
+            <input type="text" ref={(input) => this.title = input} />
           </label>
           <label>
             Content:
@@ -134,7 +164,7 @@ class Filter extends Component {
     return (
       <div>
         <form>
-          <input type="input" value={this.state.value}
+          <input className="post" type="input" value={this.state.value}
                               //  onChange={this.handleChange}
                              
                                onSubmit={this.handleSubmit}

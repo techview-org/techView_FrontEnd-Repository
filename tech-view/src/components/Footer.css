@@ -1,11 +1,16 @@
 
- 
+ #img{
+  width:100px;
+  height:100px;
+  margin-left: 5px;
+ }
   .footer {
     background-color: #4DC2FF;
     color: white;
     display: flex;
-    /* position:fixed; */
+    position:fixed;;
     bottom: 0%;
+    z-index: -1;
     width:100%;
     height:100px;
     justify-content: space-between;

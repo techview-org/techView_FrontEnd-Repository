@@ -14,7 +14,7 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <Render/>
+       <div>HI</div>
       </div>
     </div>
   </React.Fragment>, document.body
