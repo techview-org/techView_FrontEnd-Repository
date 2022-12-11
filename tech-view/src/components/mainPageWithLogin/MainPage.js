@@ -13,7 +13,7 @@ const background = {
   return (
     <>
       <Navbar />
-    <div style={background}>  <Render />  <SideBar /></div>
+    <div style={background}>  <Render />  </div>
       <Footer />
     </>
   )

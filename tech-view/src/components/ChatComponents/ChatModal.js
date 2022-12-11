@@ -7,12 +7,14 @@ import ChatFunctionality from './ChatFunctionality';
 
 
 const style = {
-  position: 'absolute',
-  top: '50%',
+  position: 'relative',
+  top: '250px',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '100vw',
-  height:'100vh',
+  width: '700px',
+  height:'600px',
+  paddingBottom:"50",
+  paddingTop:"50",
 
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -43,7 +45,7 @@ function ChatModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-       <ChatFunctionality/>
+       <div><ChatFunctionality/></div>
         </Box>
       </Modal>
     </div>

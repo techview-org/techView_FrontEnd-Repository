@@ -5,10 +5,10 @@
   margin-left: 5px;
  }
   .footer {
-    background-color: #4DC2FF;
+    background-color: #1976D2;
     color: white;
     display: flex;
-    position:relative;
+    position:fixed;
     bottom: 0%;
     z-index: 1;
     width:100%;

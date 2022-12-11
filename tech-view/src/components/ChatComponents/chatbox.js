@@ -8,20 +8,15 @@ function Chatbox () {
     const sidebarStyling = {
       position:"fixed",
       right:"10px",
-      bottom:"10px"
+      bottom:"100px"
 
     }
-
-    const handleClick = () =>{
-      return (<ChatModal/>)
-    }
-  
     return (
-      <Button onClick={handleClick} style={sidebarStyling}>
+      <Button  style={sidebarStyling}>
        <img   src={Chat} alt='chatbox' id='img'  style={{ width:"100px",
   height:"100px",
   marginRight: "5px"}} />
-      </Button>
+      <ChatModal/></Button>
     )
   }
 

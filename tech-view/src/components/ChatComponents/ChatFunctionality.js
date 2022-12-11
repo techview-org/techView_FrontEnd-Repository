@@ -12,8 +12,8 @@ export default function ChatFunctionality(){
     <ChatEngine
       height="100vh"
       projectID={projectID}
-      userName={"TECHVIEW"}
-      userSecret={"TECHVIEW"}
+      userName="TECHVIEW"
+      userSecret="TECHVIEW"
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />

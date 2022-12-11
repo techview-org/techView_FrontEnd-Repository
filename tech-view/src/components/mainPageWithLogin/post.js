@@ -123,7 +123,7 @@ class PostForm extends Component {
     this.category.value = categories[0];
     this.content.value = '';
     this.title.value = "";
-    this.date.value = new Date().getDate
+   
     event.preventDefault();
   }
 
@@ -142,11 +142,11 @@ class PostForm extends Component {
           </label>
           <label>
             Title:
-            <input type="text"  placeholder="Title"ref={(input) => this.title = input} />
+            <input type="text" className="titles" placeholder="Title"ref={(input) => this.title = input} />
           </label>
           <label>
             Content:
-            <input type="text" placeholder="Question" ref={(input) => this.content = input} />
+            <input type="text" classNames="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
           <center><div> <button className="button-default"> Ask A Question!</button></div></center>
          
