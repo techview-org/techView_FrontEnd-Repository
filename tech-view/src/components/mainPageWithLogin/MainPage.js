@@ -1,27 +1,19 @@
 import Navbar from '../Navbar'
-
 import SideBar from '../SideBar'
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
-import Modal from './modal'
 import React, { useState } from 'react';
-import useModal from './useModal'
-import './Modal.css'
-import Render from './post.js'
-import './post.css'
-
-import Chatbox from './chatbox'
-
+import Render from './post.js';
 export default function MainPage() {
 
-
+const background = {
+  backgroundColor: 'white',
+}
 
   return (
-
     <>
       <Navbar />
-    <div><Render /> </div> <SideBar /><div></div>
-    <Chatbox/>
+    <div style={background}>  <Render />  <SideBar /></div>
       <Footer />
     </>
   )

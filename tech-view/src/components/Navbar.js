@@ -29,7 +29,7 @@ export default function Navbar () {
                 textDecoration: 'none',
                 color: 'white'
               }} to='/'
-            >Techview
+            >TECHVIEW
             </Link>
             <img src={logo} alt='1' id='img'  style={{ width:"100px",
   height:"100px",

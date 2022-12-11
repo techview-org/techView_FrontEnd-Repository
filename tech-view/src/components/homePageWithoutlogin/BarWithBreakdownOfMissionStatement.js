@@ -2,8 +2,9 @@ export default function BarWithBreakdownOfMissionStatement () {
   const mainDivStyling = {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '30px',
-    backgroundColor: 'grey'
+   
+    backgroundColor: '#1976D2',
+    padding:"70px"
   }
 
   const innerDivStyling = {

@@ -29,7 +29,6 @@ function SideBar () {
     <div style={sidebarStyling}>
       <Button color='inherit' onClick={() => { navigate('/Home') }}>Users</Button>
           <Button color='inherit' onClick={() => { navigate('/login') }}>Latest News</Button>
-    
           <Button color='inherit' onClick={() => { navigate('/Community') }}>Success Stories</Button>
     </div>
   )

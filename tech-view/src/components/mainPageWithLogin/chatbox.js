@@ -9,12 +9,16 @@ function Chatbox () {
       bottom:"10px"
 
     }
+
+    // const handleClick = () =>{
+    //   <BasicModal/>
+    // }
   
     return (
       <div style={sidebarStyling}>
-       <img src={Chat} alt='chatbox' id='img'  style={{ width:"100px",
+       <img  src={Chat} alt='chatbox' id='img'  style={{ width:"100px",
   height:"100px",
-  marginLeft: "5px"}} />
+  marginRight: "5px"}} />
       </div>
     )
   }
