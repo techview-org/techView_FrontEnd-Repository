@@ -7,11 +7,20 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+const button = {
+    backgroundColor:"gray",
+    height:"50",
+    width:"120",
+    color:"black",
+    marginRight:"0"
+  }
+
+
 export default function CommentDropDown() {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <Menu.Button className="inline-flex w-full justify-center rounded-md border   text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+                <Menu.Button  style = {button} className=" focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
                     Comments
                     <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
                 </Menu.Button>

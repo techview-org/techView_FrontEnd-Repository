@@ -20,7 +20,8 @@ const style = {
 const button = {
   backgroundColor:"gray",
   height:"50",
-  width:"120"
+  width:"120",
+  color:"black"
 }
 
 function BasicModal(props) {
