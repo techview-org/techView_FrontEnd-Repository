@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import ChatFunctionality from './ChatFunctionality';
 
 
 const style = {
@@ -10,8 +11,8 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 800,
-  height:800,
+  width: '100vw',
+  height:'100vh',
 
   bgcolor: 'background.paper',
   border: '2px solid #000',
@@ -42,7 +43,7 @@ function ChatModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <div>HI</div>
+       <ChatFunctionality/>
         </Box>
       </Modal>
     </div>

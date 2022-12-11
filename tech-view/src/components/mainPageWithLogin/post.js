@@ -5,7 +5,7 @@ import BasicModal from './modal';
 import Button from '@mui/material/Button';
 import CommentDropDown from '../commentDropdown';
 import SearchBar from '../searchBar';
-import Chatbox from './chatbox';
+import Chatbox from '../ChatComponents/chatbox'
 import SideBar from '../SideBar';
 
 const query = ""
