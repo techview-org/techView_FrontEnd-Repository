@@ -11,9 +11,7 @@ export default function HomePageWithoutLogin () {
       <Navbar />
       <TopPortionOfHomePage />
       <BarWithBreakdownOfMissionStatement />
-      <ImageWithDescriptionOfImage imgOnLeft imageSrc={pictureOfMainBoard} imageAlt='hello' style={{width:"30%",height:"30%"}}descriptionOfImage='Join our communtiy board today and contribute to the conversation' />
-      {/* <ImageWithDescriptionOfImage imgOnLeft={false} imageSrc={pictureOfMainBoard} imageAlt='hello' descriptionOfImage='Join our communtiy board today and contribute to the conversation' /> */}
-      <Footer />
+
     </>
   )
 }

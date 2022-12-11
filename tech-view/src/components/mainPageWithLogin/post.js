@@ -1,22 +1,31 @@
 import './post.css';
 import React, { Component ,useState} from 'react';
 // import useModal from './useModal';
-import Modal from './modal';
+import BasicModal from './modal';
+import Button from '@mui/material/Button';
+import CommentDropDown from '../commentDropdown';
+import SearchBar from '../searchBar';
+import Chatbox from '../ChatComponents/chatbox'
+import SideBar from '../SideBar';
 
+const query = ""
+
+
+const searchbarStyling={
+  position:"relative",
+  top:"50",
+  marginTop:"50"
+
+}
 const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
-// const [isShowing, setIsShowing] = useState(false);
-
-// function toggle() {
-//   setIsShowing(!isShowing);
-// }
-
-
 
 class Render extends Component {
   render() {
     return (
       <div className="App">
+        <SideBar/>
         <Feed />
+        <Chatbox/>
       </div>
     );
   }
@@ -26,7 +35,7 @@ class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: JSON.parse(localStorage.getItem('posts')) || [],
+      posts:  [],
       filteredPosts: []
     }
 
@@ -37,12 +46,10 @@ class Feed extends Component {
   handleNewPost(post) {
     var posts = this.state.posts.concat([post]);
     this.setState({posts: posts});
-    localStorage.setItem('posts', JSON.stringify(posts));
-    localStorage.setItem('', JSON.stringify(""));
-    setTimeout(()=>{
-      this.setState({posts: ""});
-    },5000)
-
+   
+    
+   
+  
   }
 
   handleFilter(filter) {
@@ -50,19 +57,21 @@ class Feed extends Component {
       filteredPosts: this.state.posts.filter((post) =>
         post.category.toUpperCase() === filter.toUpperCase() ||
           post.content.includes(filter)
+       
       )
     });
   }
 
   render() {
-    const posts = this.state.posts.map((post, index) =>
+    const posts = this.state.posts.reverse().map((post, index) =>
       <Post key={index} value={post} />
     );
     const filteredPosts = this.state.filteredPosts.map((post, index) =>
       <Post key={index} value={post} />
     );
     return (
-      <div className="feed">
+      <div >
+        <div style={searchbarStyling}><center><SearchBar/></center></div> 
          <PostForm onSubmit={this.handleNewPost} />
         <Filter onFilter={this.handleFilter} />
         {filteredPosts.length > 0 ? filteredPosts : posts}
@@ -73,17 +82,25 @@ class Feed extends Component {
 }
 
 class Post extends Component {
+  handleClick = () => {
+  return (   <BasicModal/>)
+
+  };
+
   render() {
+    
     return (
       
-      <div className="post">
-        <span className="User">User: Wayne</span>
-        <span className="label">{this.props.value.category}</span>
+      <div className="post" >
+         <div className="heading">
+        <span className="User">User:    Wayne</span><span className="label">{this.props.value.category}</span> </div>
         <span className="Title">   Title: {this.props.value.title}</span>
         <span className="content">{this.props.value.content}</span>
-        <span className="Time">{this.props.value.date}</span>
-      
+       
+       
+      <div className='comments'><BasicModal/> <CommentDropDown/></div>  
       </div>
+      
     )
   }
 }
@@ -95,26 +112,26 @@ class PostForm extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
       title: this.title.value
+      
+      
     });
     this.category.value = categories[0];
     this.content.value = '';
     this.title.value = "";
-    this.date.value = new Date().getDate
+   
     event.preventDefault();
   }
 
   render() {
     return (
       
-      <div className="post-form">
-        <div className="button-default" >
-        Create A New Post
-      </div>
-        <form onSubmit={this.handleSubmit}>
+      <div  >
+        <form className="form" onSubmit={this.handleSubmit}>
           <label>
             Category:
             <select ref={(input) => this.category = input}>
@@ -125,13 +142,14 @@ class PostForm extends Component {
           </label>
           <label>
             Title:
-            <input type="text" ref={(input) => this.title = input} />
+            <input type="text" className="titles" placeholder="Title"ref={(input) => this.title = input} />
           </label>
           <label>
             Content:
-            <input type="text" ref={(input) => this.content = input} />
+            <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
-          <button className="button">Submit</button>
+          <center><div> <button className="button-default"> Ask A Question!</button></div></center>
+         
         </form>
       </div>
     )
@@ -151,26 +169,21 @@ class Filter extends Component {
     this.setState({value: event.target.value});
     if (event.target.value === '') {
       this.props.onFilter('');
+      event.preventDefault()
     }
   }
 
   handleKeyUp(event) {
     if (event.key === 'Enter') {
       this.props.onFilter(this.state.value);
+      event.preventDefault()
     }
   }
 
+ 
   render() {
     return (
       <div>
-        <form>
-          <input className="post" type="input" value={this.state.value}
-                              //  onChange={this.handleChange}
-                             
-                               onSubmit={this.handleSubmit}
-                               onKeyUp={this.handleKeyUp}
-                               placeholder="What's on your mind?" />
-        </form>
       </div>
     )
   }

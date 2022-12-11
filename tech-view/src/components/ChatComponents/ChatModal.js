@@ -3,14 +3,19 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Comment from '../comment';
+import ChatFunctionality from './ChatFunctionality';
+
 
 const style = {
-  position: 'absolute',
-  top: '50%',
+  position: 'relative',
+  top: '250px',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '700px',
+  height:'600px',
+  paddingBottom:"50",
+  paddingTop:"50",
+
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -20,11 +25,10 @@ const style = {
 const button = {
   backgroundColor:"gray",
   height:"50",
-  width:"120",
-  color:"black"
+  width:"120"
 }
 
-function BasicModal(props) {
+function ChatModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -33,7 +37,7 @@ function BasicModal(props) {
 
   return (
     <div>
-    <Button style = {button} onClick={handleOpen}>Comment</Button>
+    <Button style = {button} onClick={handleOpen}>Chat Today</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -41,11 +45,11 @@ function BasicModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <Comment/>
+       <div><ChatFunctionality/></div>
         </Box>
       </Modal>
     </div>
   );
 }
 
-export default BasicModal;
+export default ChatModal;
