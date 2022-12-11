@@ -130,8 +130,8 @@ class PostForm extends Component {
   render() {
     return (
       
-      <div  className="form">
-        <form onSubmit={this.handleSubmit}>
+      <div  >
+        <form className="form" onSubmit={this.handleSubmit}>
           <label>
             Category:
             <select ref={(input) => this.category = input}>
@@ -146,7 +146,7 @@ class PostForm extends Component {
           </label>
           <label>
             Content:
-            <input type="text" classNames="contents" placeholder="Question" ref={(input) => this.content = input} />
+            <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
           <center><div> <button className="button-default"> Ask A Question!</button></div></center>
          
