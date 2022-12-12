@@ -9,18 +9,6 @@ import { useNavigate  } from 'react-router-dom'
 export default function MainPage () {
   const navigate = useNavigate()
 
-//   function checkWindow(){
-//    let user = JSON.parse(localStorage.getItem('email'))
-
-//    if( user === "out"){
-//     navigate('/')
-//    }
-
-//   }
-
-// checkWindow()
-
-
   return (
     <>
       <NavbarLogin />
