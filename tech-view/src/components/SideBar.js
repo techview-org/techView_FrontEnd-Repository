@@ -1,3 +1,4 @@
+import React from 'react';
 export default function SideBar () {
   const sidebarStyling = {
     height: '100%',

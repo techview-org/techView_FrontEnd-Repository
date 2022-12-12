@@ -1,5 +1,6 @@
 // PostInfo takes in user: string, and message: string, to make PostInfo dynamic for any user and any post
 // user and message parameters should be changed later to useContext value
+import React from 'react';
 export default function PostInfo ({ user, message }) {
   return (
   // style added was purely for testing purposes

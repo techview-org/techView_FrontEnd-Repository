@@ -1,4 +1,5 @@
-import * as React from 'react'
+
+import React from 'react';
 import Navbar from './Navbar'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -15,6 +16,7 @@ import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useNavigate} from 'react-router-dom'
 import {useState} from 'react'
+const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../meme_generator/generate')
 
 
 function Copyright (props) {
@@ -41,30 +43,29 @@ export default function SignUp () {
     fontFamily: "Arial"
   };
 
-  const [userName, setUsername] = useState("RandomUsername")
+  const [userName, setUsername] = useState("Random Username")
 
   const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      username: data.get('firstName')
-    })
+  
     fetch('http://localhost:4005/new_user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: data.get('firstName'), email: data.get('email'), password: data.get('password'), badged_id: 1 })
+      body: JSON.stringify({ username: userName, email: data.get('email'), password: data.get('password'), badged_id: 1 })
     }).then(response => response.json())
       .then(data => {
         console.log(data[0])
+        setUsername("Random Username")
         navigate('/login')
       }
       )
   }
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -92,7 +93,7 @@ export default function SignUp () {
               <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Enter a Search Term </label>
               <div contenteditable="true">{userName}</div> 
             {/* <input type="text" className="form-control" id="searchInput" /> */}
-            <button type="button" className="btn btn-success" >Search</button>
+            <button type="button" className="btn btn-success" onClick={()=>{ setUsername(generateUsername())}} >Search</button>
               </Grid>
               <Grid item xs={12} sm={6}>
                 {/* <TextField

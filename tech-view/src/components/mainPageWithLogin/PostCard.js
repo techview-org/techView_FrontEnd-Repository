@@ -1,3 +1,4 @@
+import React from 'react';
 import LikeAndCommentButtonContainer from './LikeAndCommentButtonContainer'
 import PostInfo from './PostInfo'
 

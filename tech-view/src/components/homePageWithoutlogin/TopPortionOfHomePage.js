@@ -1,5 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom'
 import homepageImage from '../homepageImage.png'
+
 
 export default function TopPortionOfHomePage () {
   const mainDivStyling = {

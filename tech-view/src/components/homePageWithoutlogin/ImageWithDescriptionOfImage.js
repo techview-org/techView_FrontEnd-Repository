@@ -1,5 +1,6 @@
 // component takes four parameters, imgOnLeft: boolean, imageSrc: string, imageAlt: string, descriptionOfImage: string
 // imgOnLeft decides on whether the image is on the left or not
+import React from 'react';
 export default function ImageWithDescriptionOfImage ({ imgOnLeft, imageSrc, imageAlt, descriptionOfImage }) {
   const textStyling = {
     padding: '40px',

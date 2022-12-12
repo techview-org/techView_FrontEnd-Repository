@@ -1,3 +1,4 @@
+import React from 'react';
 import Navbar from '../Navbar'
 import PostCardsContainer from './PostCardsContainer'
 import SideBar from '../SideBar'

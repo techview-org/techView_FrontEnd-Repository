@@ -1,3 +1,4 @@
+import React from 'react';
 export default function LikeAndCommentButtonContainer () {
   return (
   // style added was purely for testing purposes
