@@ -8,7 +8,7 @@ function classNames(...classes) {
 }
 
 const button = {
-    backgroundColor:"transparent",
+    backgroundColor:"gray",
     height:"50",
     width:"120",
     color:"black",

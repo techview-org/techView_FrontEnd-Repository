@@ -1,18 +1,39 @@
-const items = [
-    { id: "You could use the sort method" },
-    { id: "i think you should consider the time complexity" },
-    { id: "Space complexity is very important as well" },
-   
-  ]
+
+import React, { Component ,useState, useEffect} from 'react';
+
+export default function CommentList() {
+  // const [posts,setPosts] = useState("")
+  const background = {
+    backgroundColor:"gray"
   
-  export default function CommentList() {
-    return (
-      <ul role="list" className="divide-y divide-gray-200">
-        {items.map((item) => (
-          <li key={item.id} className="py-4">
-          Allison : You could use the sort method
-          </li>
-        ))}
-      </ul>
-    )
-  }
+}
+      useEffect(() => {
+  
+          let welcome_id =1
+          fetch(`http://localhost:4005/comments/${welcome_id}`).then(res => res.json())
+          .then(result => {
+              console.log(result);
+              
+            return (
+              <ul role="list" >
+                {result.map((item) => (
+                  <li style = {background}  className="py-4">
+            {item}
+                  </li>
+                ))}
+              </ul>
+            )
+                })
+            
+      },[]);
+    }
+
+          
+          
+        
+        
+             
+      
+
+
+  

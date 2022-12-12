@@ -17,9 +17,9 @@ export default function Comment({comment}) {
       fetch('http://localhost:4005/user').then(res => res.json())
       .then(result => {
           console.log(result);
-      welcome_id = result})
+      welcome_id = result;
 
-  const body = {  welcome_id, likes, comment };
+  let body = {  welcome_id, likes, comment };
   console.log(body)
   const options = {
     method: "POST",
@@ -30,7 +30,7 @@ export default function Comment({comment}) {
   
 fetch('http://localhost:4005/new_comment', options)
 
-
+      })
 }, []);
 
 
@@ -117,7 +117,7 @@ fetch('http://localhost:4005/new_comment', options)
       <div className="mt-2 flex justify-end">
         <button
           type="submit"
-          ref={(input) => comment= input}
+          ref={(input) => {comment= input; console.log(comment)}}
           onClick={SendPost}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >

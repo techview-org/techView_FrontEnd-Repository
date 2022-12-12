@@ -35,7 +35,7 @@ class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts:  [],
+      posts: JSON.parse(localStorage.getItem('posts')) || [],
       filteredPosts: []
     }
     this.handleNewPost = this.handleNewPost.bind(this);
@@ -45,6 +45,8 @@ class Feed extends Component {
   handleNewPost(post) {
     var posts = this.state.posts.concat([post]);
     this.setState({posts: posts});
+    localStorage.setItem('posts', JSON.stringify(posts));
+    localStorage.setItem('', JSON.stringify(""));
   }
 
   handleFilter(filter) {
@@ -106,9 +108,7 @@ class PostForm extends Component {
    
   handleSubmit(event) {
     event.preventDefault();
-    // this.props.PostFetch(this.category.value,
-    //   this.content.value,
-    //    this.title.value)
+  
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
