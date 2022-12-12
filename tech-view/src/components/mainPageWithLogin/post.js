@@ -106,9 +106,9 @@ class PostForm extends Component {
    
   handleSubmit(event) {
     event.preventDefault();
-    this.props.PostFetch(this.category.value,
-      this.content.value,
-       this.title.value)
+    // this.props.PostFetch(this.category.value,
+    //   this.content.value,
+    //    this.title.value)
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
