@@ -7,7 +7,7 @@ import Render from './post.js';
 export default function MainPage() {
 
 const background = {
-  backgroundColor: 'white',
+  backgroundColor: 'black',
 }
 
   return (

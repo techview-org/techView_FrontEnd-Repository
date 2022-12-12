@@ -7,7 +7,7 @@ import CommentDropDown from '../commentDropdown';
 import SearchBar from '../searchBar';
 import Chatbox from '../ChatComponents/chatbox'
 import SideBar from '../SideBar';
-
+import PostFetch from './postfetches'
 const query = ""
 
 
@@ -110,28 +110,31 @@ class PostForm extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+   
+  
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
-      title: this.title.value
-      
-      
+      title: this.title.value,
+     
     });
     this.category.value = categories[0];
     this.content.value = '';
     this.title.value = "";
-   
+
     event.preventDefault();
   }
 
+
+  
   render() {
     return (
       
       <div  >
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit} >
           <label>
             Category:
             <select ref={(input) => this.category = input}>
@@ -148,8 +151,9 @@ class PostForm extends Component {
             Content:
             <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
-          <center><div> <button className="button-default"> Ask A Question!</button></div></center>
-         
+          <center><div> <button className="button-default" onSubmit={this.PostFetch}> Ask A Question!</button></div></center>
+          <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>;
+
         </form>
       </div>
     )
