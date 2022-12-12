@@ -2,10 +2,11 @@ export default function SearchBar() {
     return (
       <div>
         <label htmlFor="search" className="block text-sm font-medium text-gray-700">
-          Search for Questions
+        
         </label>
         <div className="relative mt-1 flex items-center">
           <input
+          placeholder="  Search for Questions"
             type="text"
             name="search"
             id="search"

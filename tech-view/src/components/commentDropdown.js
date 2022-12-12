@@ -8,11 +8,12 @@ function classNames(...classes) {
 }
 
 const button = {
-    backgroundColor:"gray",
+    backgroundColor:"transparent",
     height:"50",
     width:"120",
     color:"black",
-    marginRight:"0"
+    marginRight:"0",
+    borderColor:"transparent"
   }
 
 
@@ -20,9 +21,9 @@ export default function CommentDropDown() {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <Menu.Button  style = {button} className=" focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-                    Comments
-                    <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+                <Menu.Button  style = {button} >
+                   
+                    <ChevronDownIcon  style = {button} aria-hidden="true" />
                 </Menu.Button>
             </div>
 

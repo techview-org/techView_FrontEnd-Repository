@@ -1,11 +1,40 @@
 import { Tab } from '@headlessui/react'
-import { AtSymbolIcon, CodeBracketIcon, LinkIcon } from '@heroicons/react/20/solid'
+import { AtSymbolIcon, CodeBracketIcon, LinkIcon } from '@heroicons/react/20/solid';
+import React, { Component ,useState, useEffect} from 'react';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Comment() {
+
+
+export default function Comment({comment}) {
+
+  const SendPost = () =>{
+    useEffect(() => {
+      let likes = 5;
+      let welcome_id =""
+      fetch('http://localhost:4005/user').then(res => res.json())
+      .then(result => {
+          console.log(result);
+      welcome_id = result})
+
+  const body = {  welcome_id, likes, comment };
+  console.log(body)
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }
+
+  
+fetch('http://localhost:4005/new_comment', options)
+
+
+}, []);
+
+
+  }
   return (
     <form action="#">
       <Tab.Group>
@@ -88,6 +117,8 @@ export default function Comment() {
       <div className="mt-2 flex justify-end">
         <button
           type="submit"
+          ref={(input) => comment= input}
+          onClick={SendPost}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Post

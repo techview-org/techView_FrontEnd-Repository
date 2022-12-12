@@ -1,15 +1,12 @@
-*{
-  margin:20 20 20 20;
-}
 
 .post {
-  background:#1976D2;
+  background-color:#1976D2;
 margin-left:250px;
-  padding: 20px;
+ 
   color: black;
   font-weight: 500;
  z-index: -1;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px0px 0 rgba(0, 0, 0, 0.10);
+
   width:70%;
 }
 
@@ -19,7 +16,7 @@ margin-left:250px;
  justify-content: space-evenly;
  flex-direction: row;
  margin:auto;
- padding-top:50px;
+ padding-top:20px;
   z-index: -1;
 }
 
@@ -55,18 +52,11 @@ border-radius: 50%;
   color: Black;
   margin-top: 0;
   font-weight: 900;
- 
-
-
 }
-
 .heading{
 display:flex;
 justify-content: space-between;
-
-
 flex-direction: row ;
-
 }
 .content{
   color: Black;

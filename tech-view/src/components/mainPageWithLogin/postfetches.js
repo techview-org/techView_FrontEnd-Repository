@@ -1,7 +1,7 @@
 import { React, useEffect, useState,  useContext} from 'react';
 
 
-const postFetch = ( {post_title, post_description, post_type}) =>{
+const PostFetch = ( {post_title, post_description, post_type}) =>{
 // const [posts,setPosts] = useState("")
 
     useEffect(() => {
@@ -29,4 +29,4 @@ fetch('http://localhost:4005/addPost', options)
 
 }
 
-export default postFetch
+export default PostFetch

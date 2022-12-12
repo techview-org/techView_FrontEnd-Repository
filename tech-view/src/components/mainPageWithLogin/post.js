@@ -38,7 +38,6 @@ class Feed extends Component {
       posts:  [],
       filteredPosts: []
     }
-
     this.handleNewPost = this.handleNewPost.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
@@ -46,10 +45,6 @@ class Feed extends Component {
   handleNewPost(post) {
     var posts = this.state.posts.concat([post]);
     this.setState({posts: posts});
-   
-    
-   
-  
   }
 
   handleFilter(filter) {
@@ -88,9 +83,7 @@ class Post extends Component {
   };
 
   render() {
-    
     return (
-      
       <div className="post" >
          <div className="heading">
         <span className="User">User:    Wayne</span><span className="label">{this.props.value.category}</span> </div>
@@ -111,10 +104,11 @@ class PostForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
    
-  
-
   handleSubmit(event) {
     event.preventDefault();
+    this.props.PostFetch(this.category.value,
+      this.content.value,
+       this.title.value)
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
@@ -131,9 +125,10 @@ class PostForm extends Component {
 
   
   render() {
+    
     return (
-      
-      <div  >
+    
+      <div>
         <form className="form" onSubmit={this.handleSubmit} >
           <label>
             Category:
@@ -152,11 +147,13 @@ class PostForm extends Component {
             <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
           <center><div> <button className="button-default" onSubmit={this.PostFetch}> Ask A Question!</button></div></center>
-          <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>;
+          {/* <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>; */}
 
         </form>
       </div>
+     
     )
+    
   }
 }
 
@@ -164,7 +161,6 @@ class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
-
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }

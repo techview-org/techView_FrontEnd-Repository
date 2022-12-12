@@ -1,5 +1,5 @@
 import Navbar from '../Navbar'
-import SideBar from '../SideBar'
+
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
 import React, { useState } from 'react';
@@ -7,7 +7,8 @@ import Render from './post.js';
 export default function MainPage() {
 
 const background = {
-  backgroundColor: 'black',
+  backgroundColor: '#0D2129',
+  
 }
 
   return (

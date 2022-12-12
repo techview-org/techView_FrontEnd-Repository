@@ -11,7 +11,7 @@ const style = {
   top: '250px',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '700px',
+  width: '800px',
   height:'600px',
   paddingBottom:"50",
   paddingTop:"50",

@@ -7,7 +7,7 @@ function Chatbox () {
   
     const sidebarStyling = {
       position:"fixed",
-      right:"10px",
+      right:"5px",
       bottom:"100px"
 
     }
@@ -15,7 +15,7 @@ function Chatbox () {
       <Button  style={sidebarStyling}>
        <img   src={Chat} alt='chatbox' id='img'  style={{ width:"100px",
   height:"100px",
-  marginRight: "5px"}} />
+  marginRight: "2px"}} />
       <ChatModal/></Button>
     )
   }
