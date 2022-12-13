@@ -72,11 +72,14 @@ class Post extends Component {
   handleClick = () => {
   return (   <BasicModal/>)
   };
+
+  // let userName =  JSON.parse(localStorage.getItem('user'))
+
   render() {
     return (
       <div className="post" >
          <div className="heading">
-        <span className="User">User:    Wayne</span><span className="label">{this.props.value.category}</span> </div>
+        <span className="User">User: </span><span className="label">{this.props.value.category}</span> </div>
         <span className="Title">   Title: {this.props.value.title}</span>
         <span className="content">{this.props.value.content}</span>
        
