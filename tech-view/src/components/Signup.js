@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react';
 import Navbar from './Navbar'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -9,13 +9,17 @@ import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
+import {useState} from 'react'
+const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../meme_generator/generate')
+
 
 function Copyright (props) {
+ 
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
       {'Copyright © '}
@@ -31,28 +35,36 @@ function Copyright (props) {
 const theme = createTheme()
 
 export default function SignUp () {
+  const mystyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "15px 32px",
+    fontFamily: "Arial"
+  };
+
+  const [userName, setUsername] = useState("Random Username")
+
   const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      username: data.get('firstName')
-    })
+  
     fetch('http://localhost:4005/new_user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username: data.get('firstName'), email: data.get('email'), password: data.get('password'), badged_id: 1 })
+      body: JSON.stringify({ username: userName, email: data.get('email'), password: data.get('password'), badged_id: 1 })
     }).then(response => response.json())
       .then(data => {
         console.log(data[0])
+        setUsername("Random Username")
         navigate('/login')
       }
       )
   }
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,7 +80,7 @@ export default function SignUp () {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            {/* <LockOutlinedIcon /> */}
+            <LockOutlinedIcon />
           </Avatar>
           <Typography component='h1' variant='h5'>
             Sign up
@@ -76,26 +88,21 @@ export default function SignUp () {
           <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete='given-name'
-                  name='firstName'
-                  required
-                  fullWidth
 
-                  id='firstName'
-                  label='username'
-                  autoFocus
-                />
+              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Choose your username !! </label>
+              <div contenteditable="true">{userName}</div> 
+            {/* <input type="text" className="form-control" id="searchInput" /> */}
+            <button type="button" className="btn btn-success" onClick={()=>{ setUsername(generateUsername())}} >Search for user name </button>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField
+                {/* <TextField
                   required
                   fullWidth
                   id='lastName'
                   label='Last Name'
                   name='lastName'
                   autoComplete='family-name'
-                />
+                /> */}
               </Grid>
               <Grid item xs={12}>
                 <TextField
