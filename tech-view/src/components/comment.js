@@ -8,16 +8,20 @@ function classNames(...classes) {
 
 
 
-export default function Comment(comment) {
+export default function Comment() {
+
+  const [comment,setComment] = useState("")
 console.log(comment)
-  const SendPost = () =>{
+
+
     useEffect(() => {
       let likes = 5;
-      let welcome_id =""
-      fetch('http://localhost:4005/user').then(res => res.json())
-      .then(result => {
-          console.log(result);
-      welcome_id = result;
+      console.log(likes)
+      let welcome_id = 1
+      // fetch('http://localhost:4005/user').then(res => res.json())
+      // .then(result => {
+      //     console.log(result);
+      // welcome_id = result;
 
   let body = {  welcome_id, likes, comment };
   console.log(body)
@@ -30,11 +34,11 @@ console.log(comment)
   
 fetch('http://localhost:4005/new_comment', options)
 
-      })
-}, []);
+      }
+, []);
 
 
-  }
+  
   return (
     <form action="#">
       <Tab.Group>
@@ -118,9 +122,9 @@ fetch('http://localhost:4005/new_comment', options)
         <button
         onChange={(event)=>{event.preventDefault()}}
           type="submit"
-          ref={(input) => {comment= input; console.log(comment)}}
-          onClick={SendPost}
-          onSubmit={SendPost}
+          ref={(input) => {setComment(input); console.log(comment)}}
+         
+          onSubmit={(event)=>{event.preventDefault()}}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-blue  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Comment
