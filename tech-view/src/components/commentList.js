@@ -10,10 +10,10 @@ export default function CommentList() {
       useEffect(() => {
   
          
-          fetch(`http://localhost:4005/comments`).then(res => res.json())
+          fetch(`http://localhost:4005/comments/1`).then(res => res.json())
           .then(result => {
               console.log(result);
-              
+           
             return (
               <ul  >
                 {result.map((item) => (
@@ -23,7 +23,7 @@ export default function CommentList() {
                 ))}
               </ul>
             )
-                })
+               })  
             
       },[]);
     }

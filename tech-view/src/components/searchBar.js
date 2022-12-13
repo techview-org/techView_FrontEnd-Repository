@@ -1,6 +1,7 @@
+import './mainPageWithLogin/post.css'
 export default function SearchBar() {
     return (
-      <div>
+      <div className = "form">
         <label htmlFor="search" className="block text-sm font-medium text-gray-700">
         
         </label>

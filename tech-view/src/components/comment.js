@@ -8,8 +8,8 @@ function classNames(...classes) {
 
 
 
-export default function Comment({comment}) {
-
+export default function Comment(comment) {
+console.log(comment)
   const SendPost = () =>{
     useEffect(() => {
       let likes = 5;
@@ -116,12 +116,14 @@ fetch('http://localhost:4005/new_comment', options)
       </Tab.Group>
       <div className="mt-2 flex justify-end">
         <button
+        onChange={(event)=>{event.preventDefault()}}
           type="submit"
           ref={(input) => {comment= input; console.log(comment)}}
           onClick={SendPost}
-          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          onSubmit={SendPost}
+          className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-blue  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
-          Post
+          Comment
         </button>
       </div>
     </form>

@@ -19,7 +19,7 @@ const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 class Render extends Component {
   render() {
     return (
-      <div className="App">
+      <div >
       
         <Feed />
         <Chatbox/>
@@ -31,7 +31,7 @@ class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts:  [],
+      posts: JSON.parse(localStorage.getItem('posts')) || [],
       filteredPosts: []
     }
     this.handleNewPost = this.handleNewPost.bind(this);
@@ -89,10 +89,36 @@ class Post extends Component {
 }
 
 class PostForm extends Component {
+  
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      title :"",
+      category :"",
+      content : ""
+    }
   }
+
+
+  async componentDidMount(title,category,content){
+let id= 1
+    const body = {id, title,content,category };
+    console.log(body)
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }
+
+try{
+fetch('http://localhost:4005/addPost',options)
+}
+catch(error){
+  console.log("error")
+}
+  }
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -117,7 +143,7 @@ class PostForm extends Component {
         <form className="form" onSubmit={this.handleSubmit} >
           <label>
             Category:
-            <select className="category" ref={(input) => this.category = input}>
+            <select className="category" ref={(input) =>  ({category:input})}>
               {categories.map((category, index) =>
                 <option key={category} value={category}>{category}</option>
               )}
@@ -125,14 +151,14 @@ class PostForm extends Component {
           </label>
           <label>
             Title:
-            <input type="text" className="titles" placeholder="Title"ref={(input) => this.title = input} />
+            <input type="text" className="titles" placeholder="Title" ref={(input) =>  ({title:input})} />
           </label>
           <label>
             Content:
-            <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
+            <input type="text" className="contents" placeholder="Question" ref={(input) =>  ({content:input})} />
           </label>
-          <center><div> <button className="button-default" onSubmit={this.PostFetch}> Ask A Question!</button></div></center>
-          {/* <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>; */}
+          <center><div> <button className="button-default" > Ask A Question!</button></div></center>
+       
         </form>
       </div>
      
