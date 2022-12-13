@@ -9,16 +9,16 @@ export default function CommentList() {
 }
       useEffect(() => {
   
-          let welcome_id =1
-          fetch(`http://localhost:4005/comments/${welcome_id}`).then(res => res.json())
+         
+          fetch(`http://localhost:4005/comments`).then(res => res.json())
           .then(result => {
               console.log(result);
               
             return (
-              <ul role="list" >
+              <ul  >
                 {result.map((item) => (
                   <li style = {background}  className="py-4">
-            {item}
+           `Comment:{item}` 
                   </li>
                 ))}
               </ul>

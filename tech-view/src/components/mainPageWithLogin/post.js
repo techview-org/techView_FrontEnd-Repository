@@ -5,50 +5,42 @@ import BasicModal from './modal';
 import Button from '@mui/material/Button';
 import CommentDropDown from '../commentDropdown';
 import SearchBar from '../searchBar';
-import Chatbox from '../ChatComponents/chatbox'
-import SideBar from '../SideBar';
-import PostFetch from './postfetches'
+import Chatbox from '../ChatComponents/chatbox';
+
 const query = ""
-
-
 const searchbarStyling={
   position:"relative",
   top:"50",
   marginTop:"50"
-
 }
-const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 
+
+const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 class Render extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar/>
+      
         <Feed />
         <Chatbox/>
       </div>
     );
   }
 }
-
 class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: JSON.parse(localStorage.getItem('posts')) || [],
+      posts:  [],
       filteredPosts: []
     }
     this.handleNewPost = this.handleNewPost.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
-
   handleNewPost(post) {
     var posts = this.state.posts.concat([post]);
     this.setState({posts: posts});
-    localStorage.setItem('posts', JSON.stringify(posts));
-    localStorage.setItem('', JSON.stringify(""));
   }
-
   handleFilter(filter) {
     this.setState({
       filteredPosts: this.state.posts.filter((post) =>
@@ -58,7 +50,6 @@ class Feed extends Component {
       )
     });
   }
-
   render() {
     const posts = this.state.posts.reverse().map((post, index) =>
       <Post key={index} value={post} />
@@ -77,13 +68,10 @@ class Feed extends Component {
     )
   }
 }
-
 class Post extends Component {
   handleClick = () => {
   return (   <BasicModal/>)
-
   };
-
   render() {
     return (
       <div className="post" >
@@ -105,10 +93,10 @@ class PostForm extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-   
+
   handleSubmit(event) {
     event.preventDefault();
-  
+    
     this.props.onSubmit({
       category: this.category.value,
       content: this.content.value,
@@ -118,11 +106,8 @@ class PostForm extends Component {
     this.category.value = categories[0];
     this.content.value = '';
     this.title.value = "";
-
     event.preventDefault();
   }
-
-
   
   render() {
     
@@ -132,7 +117,7 @@ class PostForm extends Component {
         <form className="form" onSubmit={this.handleSubmit} >
           <label>
             Category:
-            <select ref={(input) => this.category = input}>
+            <select className="category" ref={(input) => this.category = input}>
               {categories.map((category, index) =>
                 <option key={category} value={category}>{category}</option>
               )}
@@ -148,7 +133,6 @@ class PostForm extends Component {
           </label>
           <center><div> <button className="button-default" onSubmit={this.PostFetch}> Ask A Question!</button></div></center>
           {/* <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>; */}
-
         </form>
       </div>
      
@@ -156,7 +140,6 @@ class PostForm extends Component {
     
   }
 }
-
 class Filter extends Component {
   constructor(props) {
     super(props);
@@ -164,7 +147,6 @@ class Filter extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }
-
   handleChange(event) {
     this.setState({value: event.target.value});
     if (event.target.value === '') {
@@ -172,14 +154,12 @@ class Filter extends Component {
       event.preventDefault()
     }
   }
-
   handleKeyUp(event) {
     if (event.key === 'Enter') {
       this.props.onFilter(this.state.value);
       event.preventDefault()
     }
   }
-
  
   render() {
     return (
@@ -188,5 +168,4 @@ class Filter extends Component {
     )
   }
 }
-
 export default Render;

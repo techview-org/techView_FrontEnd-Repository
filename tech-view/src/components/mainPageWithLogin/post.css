@@ -14,23 +14,26 @@ margin-left:250px;
   background: transparent;
   display: flex;
  justify-content: space-evenly;
- flex-direction: row;
- margin:auto;
- padding-top:20px;
+ flex-direction: column;
+align-items:center;
+ padding-top:5px;
   z-index: -1;
 }
-
+.category{
+  width:220px;
+  padding:10px;
+  }
 .titles{
-padding:30px
+  width:220px;
+padding:30px;
+margin-left: 37px;
 }
 .contents{
-
+  width:220px;
 padding:30px;
 }
 .content {
-  margin-left: 5px;
-  width:70%;
- 
+
   z-index: -1;
 }
 
@@ -52,6 +55,7 @@ border-radius: 50%;
   color: Black;
   margin-top: 0;
   font-weight: 900;
+
 }
 .heading{
 display:flex;
@@ -69,7 +73,6 @@ flex-direction: row ;
 .comments{
 display:flex;
 justify-content: space-evenly;
-
 }
 
 .button-default{
