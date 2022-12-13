@@ -15,7 +15,7 @@ import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useNavigate} from 'react-router-dom'
 import {useState} from 'react'
-const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../meme_generator/generate')
+const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../name_generate/generate')
 
 
 function Copyright (props) {
@@ -89,7 +89,7 @@ export default function SignUp () {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
 
-              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Choose your username !! </label>
+              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Choose your username!! </label>
               <div contenteditable="true">{userName}</div> 
             {/* <input type="text" className="form-control" id="searchInput" /> */}
             <button type="button" className="btn btn-success" onClick={()=>{ setUsername(generateUsername())}} >Search for user name </button>
