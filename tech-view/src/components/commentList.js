@@ -7,23 +7,22 @@ export default function CommentList() {
     backgroundColor:"gray"
   
 }
+const [data,setData] = useState("")
       useEffect(() => {
-  
-         
-          fetch(`http://localhost:4005/comments`).then(res => res.json())
+          fetch(`http://localhost:4005/comments/1`).then(res => res.json())
           .then(result => {
               console.log(result);
-              
+           setData(result.map(item=>item.comment_description))  })  
             return (
               <ul  >
-                {result.map((item) => (
+             
                   <li style = {background}  className="py-4">
-           `Comment:{item}` 
+           {data} 
                   </li>
-                ))}
+            
               </ul>
             )
-                })
+             
             
       },[]);
     }

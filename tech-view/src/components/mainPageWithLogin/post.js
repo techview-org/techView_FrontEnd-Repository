@@ -19,7 +19,7 @@ const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 class Render extends Component {
   render() {
     return (
-      <div className="App">
+      <div >
       
         <Feed />
         <Chatbox/>
@@ -31,7 +31,7 @@ class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts:  [],
+ posts: JSON.parse(localStorage.getItem('posts')) || [],
       filteredPosts: []
     }
     this.handleNewPost = this.handleNewPost.bind(this);
@@ -92,10 +92,16 @@ class Post extends Component {
 }
 
 class PostForm extends Component {
+  
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
+
+
+ 
+
 
   handleSubmit(event) {
     event.preventDefault();
@@ -134,8 +140,8 @@ class PostForm extends Component {
             Content:
             <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
-          <center><div> <button className="button-default" onSubmit={this.PostFetch}> Ask A Question!</button></div></center>
-          {/* <PostFetch post_title={this.title.value} post_description ={this.content.value} post_type = {this.category.value}/>; */}
+          <center><div> <button className="button-default" > Ask A Question!</button></div></center>
+       
         </form>
       </div>
      

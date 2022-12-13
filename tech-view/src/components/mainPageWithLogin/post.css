@@ -2,12 +2,13 @@
 .post {
   background-color:#1976D2;
 margin-left:250px;
- 
+ display: flex;
+ align-items: center;
   color: black;
   font-weight: 500;
  z-index: -1;
-
   width:70%;
+
 }
 
 .form {
@@ -17,20 +18,22 @@ margin-left:250px;
  flex-direction: column;
 align-items:center;
  padding-top:5px;
+ margin-left: 450px;
   z-index: -1;
 }
 .category{
-  width:220px;
+  width:240px;
   padding:10px;
+  margin-right:7px;
   }
 .titles{
-  width:220px;
-padding:30px;
-margin-left: 37px;
+  width:240px;
+padding:10px;
+margin-left:29px;
 }
 .contents{
-  width:220px;
-padding:30px;
+  width:240px;
+padding:20px;
 }
 .content {
 
