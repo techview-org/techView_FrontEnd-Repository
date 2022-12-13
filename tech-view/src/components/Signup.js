@@ -15,7 +15,7 @@ import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useNavigate} from 'react-router-dom'
 import {useState} from 'react'
-const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../meme_generator/generate')
+const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../name_generate/generate')
 
 
 function Copyright (props) {

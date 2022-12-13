@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import CommentDropDown from '../commentDropdown';
 import SearchBar from '../searchBar';
 import Chatbox from '../ChatComponents/chatbox';
+import imgs2 from './img.jpg'
 
 const query = ""
 const searchbarStyling={
@@ -13,7 +14,12 @@ const searchbarStyling={
   top:"50",
   marginTop:"50"
 }
-
+const imgs ={
+  borderRadius:"50%",
+  width:"50px",
+  height:"50px"
+  
+    }
 
 const categories = ['Behavioral', 'LeetCode 75', 'Technical'];
 class Render extends Component {
@@ -72,11 +78,13 @@ class Post extends Component {
   handleClick = () => {
   return (   <BasicModal/>)
   };
+
+
   render() {
     return (
       <div className="post" >
          <div className="heading">
-        <span className="User">User:    Wayne</span><span className="label">{this.props.value.category}</span> </div>
+        <span className="User"> <img src={imgs2} alt="profile" style={imgs}></img>  Wayne</span><span className="label">{this.props.value.category}</span> </div>
         <span className="Title">   Title: {this.props.value.title}</span>
         <span className="content">{this.props.value.content}</span>
        

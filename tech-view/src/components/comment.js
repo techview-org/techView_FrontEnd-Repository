@@ -120,11 +120,8 @@ fetch('http://localhost:4005/new_comment', options)
       </Tab.Group>
       <div className="mt-2 flex justify-end">
         <button
-        onChange={(event)=>{event.preventDefault()}}
           type="submit"
-          ref={(input) => {setComment(input); console.log(comment)}}
-         
-          onSubmit={(event)=>{event.preventDefault()}}
+          onSubmit={(input) => {setComment(input.target.value); console.log(input); input.preventDefault()}}
           className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-blue  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Comment
