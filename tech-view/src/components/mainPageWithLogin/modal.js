@@ -18,10 +18,10 @@ const style = {
 };
 
 const button = {
-  backgroundColor:"gray",
-  height:"50",
-  width:"120",
-  color:"black"
+  backgroundColor: "gray",
+  height: "50",
+  width: "120",
+  color: "black"
 }
 
 function BasicModal(props) {
@@ -29,11 +29,11 @@ function BasicModal(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
- 
+
 
   return (
     <div>
-    <Button style = {button} onClick={handleOpen}>Post</Button>
+      <Button style={button} onClick={handleOpen} onChange={(e) => {e.preventDefault()}}>Post</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -41,7 +41,7 @@ function BasicModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-         <Comment/>
+          <Comment />
         </Box>
       </Modal>
     </div>

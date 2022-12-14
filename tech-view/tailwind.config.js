@@ -1,21 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
+// const colors = require('tailwindcss/colors')
 module.exports = {
   content: ['./src/mainPageWithLogin/newPostPage.js'],
   theme: {
     extend: {
       colors: {
-        rose: colors.rose,
+        // rose: colors.rose,
       },
     },
   },
   plugins: [
     // ...
 
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require('forms')
+    // require('tailwindcss'),
+    // require('autoprefixer'),
+    // require('forms')
     // ...
   ]
 }
