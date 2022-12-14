@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Signup from './components/Signup'
 import Login from './components/Login'
 
-import MainPage from './components/mainPageWithLogin/MainPage';
+import MainPage from './components/backup/Mainpage'
 import Community from './components/Community/Community';
 import HomePageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin';
 import Profile from './components/profilePage/Profile';
