@@ -3,7 +3,9 @@ import Navbar from '../Navbar'
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
 import React, { useState } from 'react';
-import Render from './post.js';
+// import Render from './post.js';
+import PostFeed from './newPostPage';
+
 export default function MainPage() {
 
 const background = {
@@ -14,7 +16,7 @@ const background = {
   return (
     <>
       <Navbar />
-    <div style={background}>  <Render />  </div>
+    <div style={background}>  <PostFeed />  </div>
       <Footer />
     </>
   )
