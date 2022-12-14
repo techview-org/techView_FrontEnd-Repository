@@ -1,3 +1,5 @@
+import CommentAndLikeButton from "./CommentAndLikeButton";
+
 export default function Post({ username, postType, postContent, likes }) {
     const textStyle = {
         color: "white"
@@ -21,12 +23,4 @@ export default function Post({ username, postType, postContent, likes }) {
     );
 }
 
-function CommentAndLikeButton({ textStyle, likes }) {
-    return (<div>
-        <button>Comment</button>
-        <div>
-            <p style={textStyle}>{likes}</p>
-            <button>Likes: {likes}</button>
-        </div>
-    </div>);
-}
+

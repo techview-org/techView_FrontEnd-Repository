@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MiddleSection from "./MiddleSection";
+import  RightSection  from "./RightSection";
 
 export default function ContentArea() {
     const [posts, setPosts] = useState([])
@@ -24,12 +25,10 @@ export default function ContentArea() {
         <div style={mainDivStyle}>
             <div style={divStyle}>hello</div>
             <MiddleSection posts={posts} />
-            <div style={divStyle}>hello</div>
+            <RightSection divStyle={divStyle} />
         </div>
     );
 }
-
-
 
 
 
