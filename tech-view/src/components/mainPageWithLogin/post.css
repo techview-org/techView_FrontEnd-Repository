@@ -4,6 +4,16 @@
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   letter-spacing: 0.5px;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind forms;
+
+.body{
+  width:100vw;
+  height:100vh;
+}
 .post {
   background-color:#1976D2;
 margin-left:5px;

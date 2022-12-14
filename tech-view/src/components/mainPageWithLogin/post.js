@@ -78,13 +78,11 @@ class Post extends Component {
   handleClick = () => {
   return (   <BasicModal/>)
   };
-
-
   render() {
     return (
       <div className="post" >
          <div className="heading">
-        <span className="User"> <img src={imgs2} alt="profile" style={imgs}></img>  Wayne</span><span className="label">{this.props.value.category}</span> </div>
+        <span className="User"><img src={imgs2} alt="profile" style={imgs}></img>User:    Wayne</span><span className="label">{this.props.value.category}</span> </div>
         <span className="Title">   Title: {this.props.value.title}</span>
         <span className="content">{this.props.value.content}</span>
        
@@ -95,19 +93,13 @@ class Post extends Component {
     )
   }
 }
-
 class PostForm extends Component {
   
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
-
-
- 
-
-
   handleSubmit(event) {
     event.preventDefault();
     
@@ -146,7 +138,7 @@ class PostForm extends Component {
             <input type="text" className="contents" placeholder="Question" ref={(input) => this.content = input} />
           </label>
           <center><div> <button className="button-default" > Ask A Question!</button></div></center>
-       
+
         </form>
       </div>
      
