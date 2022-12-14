@@ -23,11 +23,10 @@ export default function Comment() {
   useEffect(() => {
     let likes = 5;
     console.log(likes)
-    let welcome_id = 1
 
-    console.log({ title, content, category })
+    console.log()
 
-    let body = { welcome_id, likes, };
+    let body = {  username: "user2", post_title: title, post_description: content, post_type: "behavorial" };
     console.log(body)
     const options = {
       method: "POST",
@@ -36,7 +35,7 @@ export default function Comment() {
     }
 
 
-    fetch('http://localhost:4005/new_comment', options)
+    fetch('http://localhost:4005/addPost', options)
   }
     , [isClicked]);
 
@@ -48,7 +47,7 @@ export default function Comment() {
         Category:
         <select className="category" >
           {categories.map((category, index) =>
-            <option key={category} onChange={(e) => { setCategory(e.target.value) }} value={category}>{category}</option>
+            <option key={category} onClick={() => { setCategory(category) }} value={category}>{category}</option>
           )}
         </select>
       </label>
