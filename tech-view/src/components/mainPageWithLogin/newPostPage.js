@@ -1,8 +1,9 @@
 import './post.css';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Menu, Popover, Transition } from '@headlessui/react'
 import BasicModal from './modal.js'
 import img from './img.jpg'
+import CommentModal from '../commentModal';
 import {
   ChatBubbleLeftEllipsisIcon,
   CodeBracketIcon,
@@ -36,42 +37,40 @@ const navigation = [
   { name: 'Profile', href: '#', icon: FireIcon, current: false }]
 
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
+  { name: 'Your Profile', href: "#" },
   { name: 'Sign out', href: '#' },
 ]
 const communities = [
   { name: 'Behavioral', href: '#' },
   { name: 'Technical', href: '#' },
   { name: 'Leetcode', href: '#' },
-  
+
 ]
 const tabs = [
   { name: 'Recent', href: '#', current: true },
   { name: 'Most Liked', href: '#', current: false },
   { name: 'Most Answers', href: '#', current: false },
 ]
-const questions = [
-  {
-    id: '81614',
-    likes: '29',
-    replies: '11',
-    views: '2.7k',
-    author: {
-      name: 'Cris Pico',
-      imageUrl:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      href: '#',
-    },
-    date: 'December 14 at 11:43 AM',
-    datetime: '2022-12-14T11:43:00',
-    href: '#',
-    title: 'How do you reverse a linked list?',
-    body: ` What methods do i need to use to reverse a linked list?`
-      ,
-  },
-  // More questions...
-]
+// const questions = [
+//   {
+//     id: '81614',
+//     likes: '29',
+//     // replies: '11',
+//     // views: '2.7k',
+//     author: {
+//       name: 'Cris Pico',
+//       imageUrl:
+//         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+//       href: '#',
+//     },
+//     date: 'December 14 at 11:43 AM',
+//     datetime: '2022-12-14T11:43:00',
+//     href: '#',
+//     title: 'How do you reverse a linked list?',
+//     body: ` What methods do i need to use to reverse a linked list?`
+//   },
+//   // More questions...
+// ]
 const whoToFollow = [
   {
     name: 'Emmanuel Ruiz',
@@ -101,15 +100,16 @@ function classNames(...classes) {
 }
 
 export default function PostFeed() {
-  const style ={width:'100vw',
-  height:"100vh"}
+  const [questions, setQuestions] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:4005/post').then(res => res.json()).then(json => { console.log(json); setQuestions(json) })
+  }, [])
+
   return (
-  
+
     <>
-     <html class="h-full bg-gray-100"></html>
-        <body class="h-full"></body>
-    
-      <div style={style}>
+      <div>
         {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
         <Popover
           as="header"
@@ -126,7 +126,7 @@ export default function PostFeed() {
                 <div className="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
                   <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
                     <div className="flex flex-shrink-0 items-center">
-                      
+
                     </div>
                   </div>
                   <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
@@ -155,21 +155,21 @@ export default function PostFeed() {
                     <Popover.Button className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
                       <span className="sr-only">Open menu</span>
                       {open ? (
-                                                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                       ) : (
                         <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                       )}
                     </Popover.Button>
                   </div>
                   <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                  
+
 
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-5 flex-shrink-0">
                       <div>
                         <Menu.Button className="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">
                           <span className="sr-only">Open user menu</span>
-                         
+
                         </Menu.Button>
                       </div>
                       <Transition
@@ -204,8 +204,8 @@ export default function PostFeed() {
                     <button
                       href="#"
                       className="ml-6 inline-flex items-center rounded-md border border-transparent indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2"
-                     >
-                      <BasicModal/>
+                    >
+                      <BasicModal />
                     </button>
                   </div>
                 </div>
@@ -227,10 +227,10 @@ export default function PostFeed() {
                     </a>
                   ))}
                 </div>
-                <div className="border-t border-gray-200 pt-4">
+                <div className="">
                   <div className="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                      <img className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="profile" />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium text-gray-800">{user.name}</div>
@@ -259,13 +259,9 @@ export default function PostFeed() {
 
                 <div className="mx-auto mt-6 max-w-3xl px-4 sm:px-6">
                   <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-rose-700"
-                  >
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-rose-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-rose-700">
                     New Post
                   </a>
-
-                  
                 </div>
               </Popover.Panel>
             </>
@@ -275,46 +271,6 @@ export default function PostFeed() {
         <div className="py-10">
           <div className="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
             <div className="hidden lg:col-span-3 lg:block xl:col-span-2">
-              <nav aria-label="Sidebar" className="sticky top-4 divide-y divide-gray-300">
-                <div className="space-y-1 pb-8">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-gray-200 text-gray-900' : 'text-gray-700 hover:bg-gray-50',
-                        'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
-                    >
-                      <item.icon
-                        className={classNames(
-                          item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                          'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
-                        )}
-                        aria-hidden="true"
-                      />
-                      <span className="truncate">{item.name}</span>
-                    </a>
-                  ))}
-                </div>
-                <div className="pt-10">
-                  <p className="px-3 text-sm font-medium text-gray-500" id="communities-headline">
-                    Category
-                  </p>
-                  <div className="mt-3 space-y-2" aria-labelledby="communities-headline">
-                    {communities.map((community) => (
-                      <a
-                        key={community.name}
-                        href={community.href}
-                        className="group flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                      >
-                        <span className="truncate">{community.name}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </nav>
             </div>
             <main className="lg:col-span-9 xl:col-span-6">
               <div className="px-4 sm:px-0">
@@ -363,23 +319,16 @@ export default function PostFeed() {
                 <h1 className="sr-only">Recent questions</h1>
                 <ul role="list" className="space-y-4">
                   {questions.map((question) => (
-                    <li key={question.id} className="bg-white px-4 py-6 shadow sm:rounded-lg sm:p-6">
-                      <article aria-labelledby={'question-title-' + question.id}>
+                    <li key={question.user_id} className="bg-white px-4 py-6 shadow sm:rounded-lg sm:p-6">
+                      <article aria-labelledby={'question-title-' + question.user_id}>
                         <div>
                           <div className="flex space-x-3">
                             <div className="flex-shrink-0">
-                              <img className="h-10 w-10 rounded-full" src={question.author.imageUrl} alt="" />
+                              <img className="h-10 w-10 rounded-full" alt="" />
                             </div>
                             <div className="min-w-0 flex-1">
-                              <p className="text-sm font-medium text-gray-900">
-                                <a href={question.author.href} className="hover:underline">
-                                  {question.author.name}
-                                </a>
-                              </p>
                               <p className="text-sm text-gray-500">
-                                <a href={question.href} className="hover:underline">
-                                  <time dateTime={question.datetime}>{question.date}</time>
-                                </a>
+                                {question.username}
                               </p>
                             </div>
                             <div className="flex flex-shrink-0 self-center">
@@ -453,13 +402,14 @@ export default function PostFeed() {
                               </Menu>
                             </div>
                           </div>
+                          <center><h1>{question.post_type}</h1></center>
                           <h2 id={'question-title-' + question.id} className="mt-4 text-base font-medium text-gray-900">
-                            {question.title}
+                            {question.post_title}
                           </h2>
                         </div>
                         <div
                           className="mt-2 space-y-4 text-sm text-gray-700"
-                          dangerouslySetInnerHTML={{ __html: question.body }}
+                          dangerouslySetInnerHTML={{ __html: question.post_description }}
                         />
                         <div className="mt-6 flex justify-between space-x-8">
                           <div className="flex space-x-6">
@@ -488,8 +438,7 @@ export default function PostFeed() {
                           <div className="flex text-sm">
                             <span className="inline-flex items-center text-sm">
                               <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                <ShareIcon className="h-5 w-5" aria-hidden="true" />
-                                <span className="font-medium text-gray-900">Share</span>
+                                <button className="font-medium text-gray-900"><CommentModal/></button>
                               </button>
                             </span>
                           </div>

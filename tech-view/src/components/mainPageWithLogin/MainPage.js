@@ -5,18 +5,20 @@ import Footer from '../Footer'
 import React, { useState } from 'react';
 // import Render from './post.js';
 import PostFeed from './newPostPage';
+import Chatbox from '../ChatComponents/chatbox';
 
 export default function MainPage() {
 
-const background = {
-  backgroundColor: '#0D2129',
-  
-}
+  const background = {
+    backgroundColor: '#0D2129',
+
+  }
 
   return (
     <>
       <Navbar />
-    <div style={background}>  <PostFeed />  </div>
+      <div style={background}>  <PostFeed />  </div>
+      <Chatbox/>
       <Footer />
     </>
   )
