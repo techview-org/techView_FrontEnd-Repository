@@ -8,15 +8,15 @@ import PostFeed from './newPostPage';
 
 export default function MainPage() {
 
-const background = {
-  backgroundColor: '#0D2129',
-  
-}
+  const background = {
+    backgroundColor: '#0D2129',
+
+  }
 
   return (
     <>
       <Navbar />
-    <div style={background}>  <PostFeed />  </div>
+      <div style={background}>  <PostFeed />  </div>
       <Footer />
     </>
   )
