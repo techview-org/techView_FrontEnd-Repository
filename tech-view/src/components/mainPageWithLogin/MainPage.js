@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import React, { useState } from 'react';
 // import Render from './post.js';
 import PostFeed from './newPostPage';
-
+import Chatbox from '../ChatComponents/chatbox';
 
 export default function MainPage() {
 
