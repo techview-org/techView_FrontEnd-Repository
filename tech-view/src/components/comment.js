@@ -17,14 +17,15 @@ export default function Comment() {
   const [category, setCategory] = useState()
   const [title, setTitle] = useState()
   const [content, setContent] = useState()
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(0)
 
 
   useEffect(() => {
     let likes = 5;
     console.log(likes)
 
-    console.log()
+    console.log(content)
+    console.log(title)
 
     let body = {  username: "user2", post_title: title, post_description: content, post_type: "behavorial" };
     console.log(body)
@@ -60,7 +61,7 @@ export default function Comment() {
         Content:
         <input type="text" className="titles" placeholder="Content" onChange={(e) => setContent(e.target.value)} />
       </label>
-      <center><div> <button className="button-default" onClick={(e) => { e.preventDefault(); setIsClicked(true) }}> Ask A Question!</button></div></center>
+      <center><div> <button className="button-default" onClick={(e) => { e.preventDefault(); console.log(isClicked);setIsClicked(isClicked + 1) }}> Ask A Question!</button></div></center>
 
     </form>
   )

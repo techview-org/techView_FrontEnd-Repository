@@ -33,7 +33,7 @@ function BasicModal(props) {
 
   return (
     <div>
-      <Button style={button} onClick={handleOpen} onChange={(e) => {e.preventDefault()}}>Post</Button>
+      <Button style={button} onClick={handleOpen}>Post</Button>
       <Modal
         open={open}
         onClose={handleClose}
