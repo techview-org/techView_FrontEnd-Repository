@@ -4,6 +4,7 @@ import { Menu, Popover, Transition } from '@headlessui/react'
 import BasicModal from './modal.js'
 import img from './img.jpg'
 import CommentModal from '../commentModal';
+import CommentDropDown from '../commentDropdown'
 import {
   ChatBubbleLeftEllipsisIcon,
   CodeBracketIcon,
@@ -32,6 +33,11 @@ const user = {
   imageUrl:
     'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
+
+
+const thumbs={
+  backgroundColor: "blue"
+}
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
   { name: 'Profile', href: '#', icon: FireIcon, current: false }]
@@ -46,11 +52,7 @@ const communities = [
   { name: 'Leetcode', href: '#' },
 
 ]
-const tabs = [
-  { name: 'Recent', href: '#', current: true },
-  { name: 'Most Liked', href: '#', current: false },
-  { name: 'Most Answers', href: '#', current: false },
-]
+
 // const questions = [
 //   {
 //     id: '81614',
@@ -117,12 +119,15 @@ export default function PostFeed() {
     right: "40px", top: "140px"
 
   }
+  const [likes, setLikes] = useState(0)
+  console.log(likes)
+  console.log(questions.likes)
   useEffect(() => {
-    fetch('http://localhost:4005/post').then(res => res.json()).then(json => { console.log(json); setQuestions(json) })
+    fetch('http://localhost:4005/post').then(res => res.json()).then(json => { console.log(json); setQuestions(json); setLikes(questions.likes) })
   }, [])
 
   return (
-
+   
     <>
       <div>
         {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
@@ -236,10 +241,11 @@ export default function PostFeed() {
                     </a>
                   ))}
                 </div>
+                <img className="h-10 w-10 rounded-full" src={img} style={imgs2} alt="profile" />
                 <div className="">
                   <div className="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={img} style={imgs2} alt="profile" />
+                   
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium text-gray-800">{user.name}</div>
@@ -287,15 +293,7 @@ export default function PostFeed() {
                   <label htmlFor="question-tabs" className="sr-only">
                     Select a tab
                   </label>
-                  <select
-                    id="question-tabs"
-                    className="block w-full rounded-md border-gray-300 text-base font-medium text-gray-900 shadow-sm focus:border-rose-500 focus:ring-rose-500"
-                    defaultValue={tabs.find((tab) => tab.current).name}
-                  >
-                    {tabs.map((tab) => (
-                      <option key={tab.name}>{tab.name}</option>
-                    ))}
-                  </select>
+                  
                 </div>
 
               </div>
@@ -400,19 +398,29 @@ export default function PostFeed() {
                             <div className="flex space-x-6">
                               <span className="inline-flex items-center text-sm">
                                 <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" />
-                                  <span className="font-medium text-gray-900">{question.likes}</span>
+                                  <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" onClick={(e)=>{setLikes(likes+1);e.preventDefault()}}/>
+                                  <span className="font-medium text-gray-900">{likes}</span>
+                                  <span className="sr-only">{likes}</span>
+                                </button>
+                              </span>
+                              <span className="inline-flex items-center text-sm">
+                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                  <CommentModal className="h-5 w-5" aria-hidden="true" />
+                                  <span className="font-medium text-gray-900"></span>
+                                  <span className="sr-only">likes</span>
+                                </button>
+                              </span>
+                              <span className="inline-flex items-center text-sm">
+                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                  <CommentDropDown className="h-5 w-5" aria-hidden="true" />
+                                  <span className="font-medium text-gray-900"></span>
                                   <span className="sr-only">likes</span>
                                 </button>
                               </span>
 
                             </div>
                             <div className="flex text-sm">
-                              <span className="inline-flex items-center text-sm">
-                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <button className="font-medium text-gray-900"><CommentModal /></button>
-                                </button>
-                              </span>
+                              
                             </div>
                           </div>
                         </article>

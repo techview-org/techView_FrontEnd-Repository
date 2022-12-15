@@ -4,6 +4,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import NewCommentModal from './newCommentModal';
+import {
+    ChatBubbleLeftEllipsisIcon,
+    CodeBracketIcon,
+    EllipsisVerticalIcon,
+    EyeIcon,
+    FlagIcon,
+    HandThumbUpIcon,
+    MagnifyingGlassIcon,
+    PlusIcon,
+    ShareIcon,
+    StarIcon,
+  } from '@heroicons/react/20/solid'
 
 const style = {
     position: 'absolute',
@@ -18,10 +30,10 @@ const style = {
 };
 
 const button = {
-    backgroundColor: "gray",
-    height: "50",
-    width: "120",
-    color: "black"
+    backgroundColor: "transparent",
+    height: "15",
+    width: "15",
+    color: "blue"
 }
 
 function CommentModal(props) {
@@ -29,14 +41,13 @@ function CommentModal(props) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
-
     return (
         <div>
-            <Button style={button} onClick={handleOpen} onChange={(e) => { e.preventDefault() }}>Comment</Button>
+            <Button style={button} onClick={handleOpen} onChange={(e) => { e.preventDefault() }}><ChatBubbleLeftEllipsisIcon/></Button>
             <Modal
                 open={open}
                 onClose={handleClose}
+                
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
