@@ -78,9 +78,6 @@ class Post extends Component {
   handleClick = () => {
   return (   <BasicModal/>)
   };
-
-  // let userName =  JSON.parse(localStorage.getItem('user'))
-
   render() {
     return (
       <div className="post" >
@@ -97,6 +94,7 @@ class Post extends Component {
   }
 }
 class PostForm extends Component {
+  
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
