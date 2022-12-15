@@ -361,7 +361,7 @@ export default function PostFeed() {
                             <div className="flex text-sm">
                               <span className="inline-flex items-center text-sm">
                                 <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <button className="font-medium text-gray-900"><CommentModal /></button>
+                                  <button className="font-medum text-gray-900"><CommentModal /></button>
                                 </button>
                               </span>
                             </div>
