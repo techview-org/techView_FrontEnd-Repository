@@ -46,55 +46,11 @@ const userNavigation = [
   { name: 'Your Profile', href: "#" },
   { name: 'Sign out', href: '#' },
 ]
-const communities = [
-  { name: 'Behavioral', href: '#' },
-  { name: 'Technical', href: '#' },
-  { name: 'Leetcode', href: '#' },
 
-]
-
-// const questions = [
-//   {
-//     id: '81614',
-//     likes: '29',
-//     // replies: '11',
-//     // views: '2.7k',
-//     author: {
-//       name: 'Cris Pico',
-//       imageUrl:
-//         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//       href: '#',
-//     },
-//     date: 'December 14 at 11:43 AM',
-//     datetime: '2022-12-14T11:43:00',
-//     href: '#',
-//     title: 'How do you reverse a linked list?',
-//     body: ` What methods do i need to use to reverse a linked list?`
-//   },
-//   // More questions...
-// ]
-const whoToFollow = [
-  {
-    name: 'Emmanuel Ruiz',
-    handle: 'emmanuelruiz',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  // More people...
-]
-const trendingPosts = [
-  {
-    id: 1,
-    user: {
-      name: 'Wayne March',
-      imageUrl:
-        'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    body: 'What books do you have on your bookshelf just to look smarter than you actually are?',
-    comments: 291,
-  },
-  // More posts...
+const tabs = [
+  { name: 'Recent', href: '#', current: true },
+  { name: 'Most Liked', href: '#', current: false },
+  { name: 'Most Answers', href: '#', current: false },
 ]
 
 function classNames(...classes) {

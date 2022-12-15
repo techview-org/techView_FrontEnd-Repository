@@ -1,11 +1,11 @@
 import Navbar from '../Navbar'
-
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
 import React, { useState } from 'react';
 // import Render from './post.js';
 import PostFeed from './newPostPage';
-import Chatbox from '../ChatComponents/chatbox';
+import Dropdown from './Dropdown'
+import InputField from './InputField';
 
 export default function MainPage() {
 
@@ -17,21 +17,10 @@ export default function MainPage() {
   return (
     <>
       <Navbar />
+      <Dropdown/>
+      <InputField />
       <div style={background}>  <PostFeed />  </div>
       <Footer />
-    </>
-  )
-}
-
-function dropdown() {
-  return (
-    <>
-      <label for='categories'>Filter</label>
-      <select name='categories'>
-        <option>Behavioral</option>
-        <option>Technical</option>
-        <option>Code 75</option>
-      </select>
     </>
   )
 }
