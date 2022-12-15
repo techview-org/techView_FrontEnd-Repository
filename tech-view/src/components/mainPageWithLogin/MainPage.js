@@ -1,11 +1,12 @@
 import Navbar from '../Navbar'
-
+import Navbarwith from '../NavabarWithLogin';
 import Footer from '../Footer'
 // import { Modal } from '@mui/material'
 import React, { useState } from 'react';
 // import Render from './post.js';
-import PostFeed from './newPostPage';
-import Chatbox from '../ChatComponents/chatbox';
+// import PostFeed from './newPostPage';
+// import MyFeed from '../newComponents/myFeed/MyFeed';
+
 
 export default function MainPage() {
 
@@ -16,9 +17,9 @@ export default function MainPage() {
 
   return (
     <>
-      <Navbar />
-      <div style={background}>  <PostFeed />  </div>
-      <Footer />
+      <Navbarwith/>
+      <div style={background}>   </div>
+      {/* <Footer /> */}
     </>
   )
 }

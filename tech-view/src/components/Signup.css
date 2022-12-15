@@ -1,0 +1,32 @@
+.userNameBox{
+    display: flex;
+    padding: 5px;
+}
+
+.userName1{
+    padding-right: 10px;
+    border-style: groove;
+    font-weight: normal;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    padding: 16px;
+  
+}
+
+.btn-success{
+  width: 200px;
+  background-color: #1976d2; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 100px;
+}
+
+
+
+

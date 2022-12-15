@@ -402,9 +402,9 @@ export default function PostFeed() {
                               </Menu>
                             </div>
                           </div>
-                          <center><h1>{question.post_type}</h1></center>
+                          <h1>{question.post_type}</h1>
                           <h2 id={'question-title-' + question.id} className="mt-4 text-base font-medium text-gray-900">
-                            {question.post_title}
+                            #{question.post_title}
                           </h2>
                         </div>
                         <div
@@ -420,28 +420,16 @@ export default function PostFeed() {
                                 <span className="sr-only">likes</span>
                               </button>
                             </span>
-                            <span className="inline-flex items-center text-sm">
-                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                <ChatBubbleLeftEllipsisIcon className="h-5 w-5" aria-hidden="true" />
+                            <span className="inline-flex items-center text-sm" onClick={()=>{ return <CommentModal/>}}>
+                              <button type="button"   className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <ChatBubbleLeftEllipsisIcon  style={background-color:"blue"className="h-5 w-5" aria-hidden="true" />
                                 <span className="font-medium text-gray-900">{question.replies}</span>
                                 <span className="sr-only">replies</span>
                               </button>
                             </span>
-                            <span className="inline-flex items-center text-sm">
-                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                <EyeIcon className="h-5 w-5" aria-hidden="true" />
-                                <span className="font-medium text-gray-900">{question.views}</span>
-                                <span className="sr-only">views</span>
-                              </button>
-                            </span>
+                          
                           </div>
-                          <div className="flex text-sm">
-                            <span className="inline-flex items-center text-sm">
-                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                <button className="font-medium text-gray-900"><CommentModal/></button>
-                              </button>
-                            </span>
-                          </div>
+                         
                         </div>
                       </article>
                     </li>

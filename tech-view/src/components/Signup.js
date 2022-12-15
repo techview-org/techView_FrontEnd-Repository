@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar'
+import './Signup.css'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -89,10 +90,17 @@ export default function SignUp () {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
 
-              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Choose your username!! </label>
-              <div contenteditable="true">{userName}</div> 
-            {/* <input type="text" className="form-control" id="searchInput" /> */}
-            <button type="button" className="btn btn-success" onClick={()=>{ setUsername(generateUsername())}} >Search for user name </button>
+              <label style={{ opacity: "0.5", textSize: '34px'}} htmlFor="searchInput">User Name </label>
+              <div className="userNameBox">
+                <div className='userName1'>
+                  <p>{userName}</p>
+                  </div>
+                  <div>
+                <button type="button" className="btn-success" onClick={()=>{ setUsername(generateUsername())}}>Generate Username</button>
+                </div>
+              </div> 
+              
+           
               </Grid>
               <Grid item xs={12} sm={6}>
                 {/* <TextField
@@ -126,10 +134,7 @@ export default function SignUp () {
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value='allowExtraEmails' color='primary' />}
-                  label='I want to receive inspiration, marketing promotions and updates via email.'
-                />
+                
               </Grid>
             </Grid>
             <Button
