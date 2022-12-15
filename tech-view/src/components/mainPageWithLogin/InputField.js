@@ -25,6 +25,12 @@ export default function InputField() {
             <br></br>
             <textarea className='detailsField' placeholder="What are the details of your problem?" onChange={(e) => { setDescription(e.target.value) }}></textarea>
             <br></br>
+            <select>
+                <option>Behavioral</option>
+                <option>Technical</option>
+                <option>LeetCode 75</option>
+            </select>
+            <br></br>
             <button className="postButton" onClick={() => {setIsClicked(true)}}>Post!</button>
         </div>
     )
