@@ -18,7 +18,6 @@ export default function MainPage() {
     <>
       <Navbar />
       <div style={background}>  <PostFeed />  </div>
-     
       <Footer />
     </>
   )

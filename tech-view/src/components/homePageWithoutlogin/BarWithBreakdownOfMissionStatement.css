@@ -1,0 +1,18 @@
+.subDivStyling {
+    display: flex;
+    justify-content: space-around;
+    padding: 70px;
+    background-color: #1976D2;
+    height: 70px;
+}
+
+.innerDivStyling {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 35px;
+}
+
+.icon {
+    width: 48px;
+}

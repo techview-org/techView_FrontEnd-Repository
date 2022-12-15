@@ -11,7 +11,6 @@ export default function HomePageWithoutLogin () {
       <Navbar />
       <TopPortionOfHomePage />
       <BarWithBreakdownOfMissionStatement />
-
     </>
   )
 }
