@@ -1,0 +1,27 @@
+.inputField {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titleField {
+    width: 25%;
+}
+
+.detailsField {
+    width: 25%;
+}
+
+.postButton {
+    color: black;
+    background-color: #1976D2;
+    padding: 10px 24px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition-duration: 0.3s;
+    max-width: 10%;
+}
+
+.postButton:hover {
+    background-color: #308dea; 
+  }

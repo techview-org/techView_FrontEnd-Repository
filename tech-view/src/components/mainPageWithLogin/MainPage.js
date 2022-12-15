@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 // import Render from './post.js';
 import PostFeed from './newPostPage';
 import Dropdown from './Dropdown'
+import InputField from './InputField';
 
 export default function MainPage() {
 
@@ -17,6 +18,7 @@ export default function MainPage() {
     <>
       <Navbar />
       <Dropdown/>
+      <InputField />
       <div style={background}>  <PostFeed />  </div>
       <Footer />
     </>
