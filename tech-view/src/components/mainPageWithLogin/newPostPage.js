@@ -105,7 +105,7 @@ export default function PostFeed() {
 
                     </div>
                   </div>
-                  <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6" style={position}>
+                  {/* <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6" style={position}>
                     <div className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
                       <div className="w-full">
                         <label htmlFor="search" className="sr-only">
@@ -125,7 +125,7 @@ export default function PostFeed() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex items-center md:absolute md:inset-y-0 md:right-0 lg:hidden">
                     {/* Mobile menu button */}
                     <Popover.Button className="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500">
@@ -176,7 +176,7 @@ export default function PostFeed() {
                         </Menu.Items>
                       </Transition>
                     </Menu>
-                    <div style={post}><BasicModal /></div>
+                    {/* <div style={post}><BasicModal /></div> */}
                   </div>
                 </div>
               </div>
