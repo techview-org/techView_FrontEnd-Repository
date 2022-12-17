@@ -4,21 +4,26 @@ import { useEffect, useState } from 'react'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-export default function NewCommentModal() {
+export default function NewCommentModal({ postId }) {
     const [content, setContent] = useState('')
     const [isClicked, setIsClicked] = useState(false)
 
-    useEffect(() => {
-        fetch('http://localhost:4005/new_comment', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
+    function createComment() {
+        const userId = +localStorage.getItem('user_id')
+        console.log(postId, userId)
+        console.log(content)
+        fetch(`http://localhost:4005/new_comment`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({
-                user_id: 2,
-                post_id: 1,
+                user_id: userId,
+                post_id: postId,
                 comment: content
-            }),
-        })
-    }, [isClicked])
+            })
+        }).then(setContent(''))
+    }
 
     return (
         <form action="#">
@@ -81,8 +86,8 @@ export default function NewCommentModal() {
                                         id="comment"
                                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                         placeholder="Add your comment..."
-                                        defaultValue={''}
-                                        onChange={(e) => {setContent(e.target.value)}}
+                                        value={content}
+                                        onChange={(e) => { setContent(e.target.value) }}
                                     />
                                 </div>
                             </Tab.Panel>
@@ -101,7 +106,7 @@ export default function NewCommentModal() {
                 <button
                     type="submit"
                     className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    onClick={(e) => {e.preventDefault(); setIsClicked(true)}}
+                    onClick={(e) => { e.preventDefault(); createComment() }}
                 >
                     Comment
                 </button>

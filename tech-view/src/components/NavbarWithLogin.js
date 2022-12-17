@@ -9,7 +9,7 @@ import logo from './logo.png'
 
 // import HomepageWithoutLogin from './components/homePageWithoutlogin/HomePageWithoutLogin'
 
-export default function Navbar() {
+export default function NavbarWithLogin() {
   const navigate = useNavigate()
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -24,14 +24,16 @@ export default function Navbar() {
         }}>
 
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+
             <img src={logo} alt='1' id='img' style={{
-              width: "auto",
+              width: "100px",
+              height: "100px",
               marginLeft: "5px"
             }} />
 
           </Typography>
-          <Button color='inherit' onClick={() => { navigate('/login') }}>Login</Button>
-          <Button color='inherit' onClick={() => { navigate('/signup') }}>Sign Up</Button>
+          <Button color='inherit' onClick={() => { navigate('/Profile') }}>Profile</Button>
+          <Button color='inherit' onClick={() => { navigate('/home') }}>Sign out</Button>
         </Toolbar>
       </AppBar>
     </Box>

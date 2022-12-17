@@ -15,7 +15,7 @@ import {
     PlusIcon,
     ShareIcon,
     StarIcon,
-  } from '@heroicons/react/20/solid'
+} from '@heroicons/react/20/solid'
 
 const style = {
     position: 'absolute',
@@ -31,28 +31,28 @@ const style = {
 
 const button = {
     backgroundColor: "transparent",
-    height: "15",
-    width: "15",
-    color: "blue"
+    height: "10",
+    width: "10",
+    color: "#1976D2"
 }
 
-function CommentModal(props) {
+function CommentModal({ postId }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
         <div>
-            <Button style={button} onClick={handleOpen} onChange={(e) => { e.preventDefault() }}><ChatBubbleLeftEllipsisIcon/></Button>
+            <Button style={button} onClick={handleOpen} onChange={(e) => { e.preventDefault() }}><ChatBubbleLeftEllipsisIcon /></Button>
             <Modal
                 open={open}
                 onClose={handleClose}
-                
+
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <NewCommentModal />
+                    <NewCommentModal postId={postId} />
                 </Box>
             </Modal>
         </div>

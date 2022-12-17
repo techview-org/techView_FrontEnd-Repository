@@ -1,4 +1,5 @@
 import * as React from 'react'
+import loginImage from './loginImage.jpeg'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -49,10 +50,9 @@ export default function SignInSide () {
         if (!data.data) {
           return false
         } else {
-          window.localStorage.setItem('user', data)
-          window.localStorage.setItem('email', data)
-          window.localStorage.setItem('password', data)
-          window.localStorage.setItem('badge', data)
+          window.localStorage.setItem('user', data.data.username)
+          window.localStorage.setItem("user_id", data.data.id)
+          window.localStorage.setItem('email', data.data.email)
           navigate('/')
         }
       })
@@ -69,7 +69,7 @@ export default function SignInSide () {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://i0.wp.com/systematic.workato.com/wp-content/uploads/2022/04/How_To_Get_A_Tech_Internship.png?fit=1920%2C1080&ssl=1)',
+            backgroundImage: `url(${loginImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

@@ -18,7 +18,7 @@ const style = {
 };
 
 const button = {
-  backgroundColor: "gray",
+  backgroundColor: "#1976D2",
   height: "50",
   width: "120",
   color: "black"

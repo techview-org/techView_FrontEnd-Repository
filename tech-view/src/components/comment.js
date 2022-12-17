@@ -27,7 +27,7 @@ export default function Comment() {
     console.log(content)
     console.log(title)
 
-    let body = {  username: "user2", post_title: title, post_description: content, post_type: "behavorial" };
+    let body = { username: "user2", post_title: title, post_description: content, post_type: "behavorial" };
     console.log(body)
     const options = {
       method: "POST",
@@ -61,7 +61,7 @@ export default function Comment() {
         Content:
         <input type="text" className="titles" placeholder="Content" onChange={(e) => setContent(e.target.value)} />
       </label>
-      <center><div> <button className="button-default" onClick={(e) => { e.preventDefault(); console.log(isClicked);setIsClicked(isClicked + 1) }}> Ask A Question!</button></div></center>
+      <center><div> <button className="button-default" onClick={(e) => { e.preventDefault(); console.log(isClicked); setIsClicked(isClicked + 1) }}> Ask A Question!</button></div></center>
 
     </form>
   )

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Signup.css'
 import Navbar from './Navbar'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -13,18 +14,18 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { useNavigate} from 'react-router-dom'
-import {useState} from 'react'
-const { adjectives, animals, generateAdjective, generateAnimal, generateNumber,generateUsername} = require('../name_generate/generate')
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+const { adjectives, animals, generateAdjective, generateAnimal, generateNumber, generateUsername } = require('../name_generate/generate')
 
 
-function Copyright (props) {
- 
+function Copyright(props) {
+
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
       {'Copyright © '}
       <Link color='inherit' href='https://mui.com/'>
-        Your Website
+        Techview
       </Link>{' '}
       {new Date().getFullYear()}
       .
@@ -34,7 +35,7 @@ function Copyright (props) {
 
 const theme = createTheme()
 
-export default function SignUp () {
+export default function SignUp() {
   const mystyle = {
     color: "white",
     backgroundColor: "DodgerBlue",
@@ -48,7 +49,7 @@ export default function SignUp () {
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-  
+
     fetch('http://localhost:4005/new_user', {
       method: 'POST',
       headers: {
@@ -64,7 +65,7 @@ export default function SignUp () {
       )
   }
 
-  
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -89,10 +90,15 @@ export default function SignUp () {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
 
-              <label style={{fontWeight: "bold", textSize: '34px'}} htmlFor="searchInput">Choose your username!! </label>
-              <div contenteditable="true">{userName}</div> 
-            {/* <input type="text" className="form-control" id="searchInput" /> */}
-            <button type="button" className="btn btn-success" onClick={()=>{ setUsername(generateUsername())}} >Search for user name </button>
+              <label style={{ opacity: "0.5", textSize: '34px'}} htmlFor="searchInput">User Name:</label>
+              <div className="userNameBox">
+                <div className='userName1'>
+                  <p>{userName}</p>
+                  </div>
+                  <div>
+                <button type="button" className="btn-success" onClick={()=>{ setUsername(generateUsername())}}>Generate Username</button>
+                </div>
+              </div> 
               </Grid>
               <Grid item xs={12} sm={6}>
                 {/* <TextField
@@ -125,12 +131,7 @@ export default function SignUp () {
                   autoComplete='new-password'
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value='allowExtraEmails' color='primary' />}
-                  label='I want to receive inspiration, marketing promotions and updates via email.'
-                />
-              </Grid>
+              
             </Grid>
             <Button
               type='submit'

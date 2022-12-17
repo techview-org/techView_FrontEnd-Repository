@@ -35,7 +35,7 @@ const user = {
 }
 
 
-const thumbs={
+const thumbs = {
   backgroundColor: "blue"
 }
 const navigation = [
@@ -57,8 +57,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function PostFeed() {
-  const [questions, setQuestions] = useState([])
+export default function PostFeed({ isClicked, questions, setQuestions, likes, setLikes, loadPost}) {
+  console.log('questions', questions)
+
   const position = {
     position: "relative",
     left: "40px"
@@ -75,15 +76,13 @@ export default function PostFeed() {
     right: "40px", top: "140px"
 
   }
-  const [likes, setLikes] = useState(0)
-  console.log(likes)
-  console.log(questions.likes)
-  useEffect(() => {
-    fetch('http://localhost:4005/post').then(res => res.json()).then(json => { console.log(json); setQuestions(json); setLikes(questions.likes) })
-  }, [])
+
+  // console.log(likes)
+  // console.log(questions.likes)
+
 
   return (
-   
+
     <>
       <div>
         {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
@@ -197,14 +196,15 @@ export default function PostFeed() {
                     </a>
                   ))}
                 </div>
-                <img className="h-10 w-10 rounded-full" src={img} style={imgs2} alt="profile" />
+         
                 <div className="">
+              
                   <div className="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
                     <div className="flex-shrink-0">
-                   
+
                     </div>
                     <div className="ml-3">
-                      <div className="text-base font-medium text-gray-800">{user.name}</div>
+                      <div className="text-base font-medium text-gray-800">{user.name}  <img  src={img} style={imgs2} alt="profile" /></div>
                       <div className="text-sm font-medium text-gray-500">{user.email}</div>
                     </div>
                     <button
@@ -249,141 +249,142 @@ export default function PostFeed() {
                   <label htmlFor="question-tabs" className="sr-only">
                     Select a tab
                   </label>
-                  
+
                 </div>
 
               </div>
               {/* <center> */}
-                <div className="mt-4">
-                  <h1 className="sr-only">Recent questions</h1>
-                  <ul role="list" className="space-y-4">
-                    {questions.map((question) => (
-                      <li key={question.user_id} style={{ width: "500px" }} className="bg-white px-8 py-6 shadow sm:rounded-lg sm:p-6">
-                        <article aria-labelledby={'question-title-' + question.user_id}>
-                          <div>
-                            <div className="flex space-x-3">
-                              <div className="flex-shrink-0">
-                                <img className="h-10 w-10 rounded-full" alt="" />
-                              </div>
-                              <div className="min-w-0 flex-1">
-                                <p className="text-sm text-gray-500">
-                                  {question.username}
-                                </p>
-                              </div>
-                              <div className="flex flex-shrink-0 self-center">
-                                <Menu as="div" className="relative inline-block text-left">
-                                  <div>
-                                    <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-gray-400 hover:text-gray-600">
-                                      <span className="sr-only">Open options</span>
-                                      <EllipsisVerticalIcon className="h-5 w-5" aria-hidden="true" />
-                                    </Menu.Button>
-                                  </div>
-
-                                  <Transition
-                                    as={Fragment}
-                                    enter="transition ease-out duration-100"
-                                    enterFrom="transform opacity-0 scale-95"
-                                    enterTo="transform opacity-100 scale-100"
-                                    leave="transition ease-in duration-75"
-                                    leaveFrom="transform opacity-100 scale-100"
-                                    leaveTo="transform opacity-0 scale-95"
-                                  >
-                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                      <div className="py-1">
-                                        <Menu.Item>
-                                          {({ active }) => (
-                                            <a
-                                              href="#"
-                                              className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'flex px-4 py-2 text-sm'
-                                              )}
-                                            >
-                                              <StarIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                              <span>Add to favorites</span>
-                                            </a>
-                                          )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                          {({ active }) => (
-                                            <a
-                                              href="#"
-                                              className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'flex px-4 py-2 text-sm'
-                                              )}
-                                            >
-                                              <CodeBracketIcon
-                                                className="mr-3 h-5 w-5 text-gray-400"
-                                                aria-hidden="true"
-                                              />
-                                              <span>Embed</span>
-                                            </a>
-                                          )}
-                                        </Menu.Item>
-                                        <Menu.Item>
-                                          {({ active }) => (
-                                            <a
-                                              href="#"
-                                              className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'flex px-4 py-2 text-sm'
-                                              )}
-                                            >
-                                              <FlagIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                                              <span>Report content</span>
-                                            </a>
-                                          )}
-                                        </Menu.Item>
-                                      </div>
-                                    </Menu.Items>
-                                  </Transition>
-                                </Menu>
-                              </div>
+              <div className="mt-4">
+                <h1 className="sr-only">Recent questions</h1>
+                <ul role="list" className="space-y-4">
+                  {questions.map((question) => (
+                    <li key={question.user_id} style={{ width: "500px" }} className="bg-white px-8 py-6 shadow sm:rounded-lg sm:p-6">
+                      <article aria-labelledby={'question-title-' + question.user_id}>
+                        <div>
+                          <div className="flex space-x-3">
+                            <div className="flex-shrink-0">
+                              <img className="h-10 w-10 rounded-full" src={img} alt="iimg" />
                             </div>
-                            <center><h1>{question.post_type}</h1></center>
-                            <h2 id={'question-title-' + question.id} className="mt-4 text-base font-medium text-gray-900">
-                              {question.post_title}
-                            </h2>
-                          </div>
-                          <div
-                            className="mt-2 space-y-4 text-sm text-gray-700"
-                            dangerouslySetInnerHTML={{ __html: question.post_description }}
-                          />
-                          <div className="mt-6 flex justify-between space-x-8">
-                            <div className="flex space-x-6">
-                              <span className="inline-flex items-center text-sm">
-                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" onClick={(e)=>{setLikes(likes+1);e.preventDefault()}}/>
-                                  <span className="font-medium text-gray-900">{likes}</span>
-                                  <span className="sr-only">{likes}</span>
-                                </button>
-                              </span>
-                              <span className="inline-flex items-center text-sm">
-                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <CommentModal className="h-5 w-5" aria-hidden="true" />
-                                  <span className="font-medium text-gray-900"></span>
-                                  <span className="sr-only">likes</span>
-                                </button>
-                              </span>
-                              <span className="inline-flex items-center text-sm">
-                                <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                                  <CommentDropDown className="h-5 w-5" aria-hidden="true" />
-                                  <span className="font-medium text-gray-900"></span>
-                                  <span className="sr-only">likes</span>
-                                </button>
-                              </span>
-
+                            <div className="min-w-0 flex-1">
+                              <p className="text-sm text-gray-500">
+                                {question.username}
+                              </p>
                             </div>
-                            <div className="flex text-sm">
-                              
+                            <div className="flex flex-shrink-0 self-center">
+                              <Menu as="div" className="relative inline-block text-left">
+                                <div>
+                                  <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-gray-400 hover:text-gray-600">
+                                    <span className="sr-only">Open options</span>
+                                    <EllipsisVerticalIcon className="h-5 w-5" aria-hidden="true" />
+                                  </Menu.Button>
+                                </div>
+
+                                <Transition
+                                  as={Fragment}
+                                  enter="transition ease-out duration-100"
+                                  enterFrom="transform opacity-0 scale-95"
+                                  enterTo="transform opacity-100 scale-100"
+                                  leave="transition ease-in duration-75"
+                                  leaveFrom="transform opacity-100 scale-100"
+                                  leaveTo="transform opacity-0 scale-95"
+                                >
+                                  <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <div className="py-1">
+                                      <Menu.Item>
+                                        {({ active }) => (
+                                          <a
+                                            href="#"
+                                            className={classNames(
+                                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                              'flex px-4 py-2 text-sm'
+                                            )}
+                                          >
+                                            <StarIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                            <span>Add to favorites</span>
+                                          </a>
+                                        )}
+                                      </Menu.Item>
+                                      <Menu.Item>
+                                        {({ active }) => (
+                                          <a
+                                            href="#"
+                                            className={classNames(
+                                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                              'flex px-4 py-2 text-sm'
+                                            )}
+                                          >
+                                            <CodeBracketIcon
+                                              className="mr-3 h-5 w-5 text-gray-400"
+                                              aria-hidden="true"
+                                            />
+                                            <span>Embed</span>
+                                          </a>
+                                        )}
+                                      </Menu.Item>
+                                      <Menu.Item>
+                                        {({ active }) => (
+                                          <a
+                                            href="#"
+                                            className={classNames(
+                                              active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                              'flex px-4 py-2 text-sm'
+                                            )}
+                                          >
+                                            <FlagIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                                            <span>Report content</span>
+                                          </a>
+                                        )}
+                                      </Menu.Item>
+                                    </div>
+                                  </Menu.Items>
+                                </Transition>
+                              </Menu>
                             </div>
                           </div>
-                        </article>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                          <center><h1>#{question.post_type}</h1></center>
+                          <h2 id={'question-title-' + question.id} className="mt-4 text-base font-medium text-gray-900">
+                            {question.post_title}
+                          </h2>
+                        </div>
+                        <div
+                          className="mt-2 space-y-4 text-sm text-gray-700"
+                          dangerouslySetInnerHTML={{ __html: question.post_description }}
+                        />
+                        <div className="mt-6 flex justify-between space-x-8">
+                          <div className="flex space-x-6">
+                            <span className="inline-flex items-center text-sm">
+                              {/* <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <HandThumbUpIcon className="h-5 w-5" aria-hidden="true" onClick={(e) => { setLikes(question.likes+1); e.preventDefault() }} />
+                                <span className="font-medium text-gray-900">{likes}</span>
+                                <span className="sr-only">{likes}</span>
+                              </button> */}
+                            </span>
+                            <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <CommentModal className="h-5 w-5" aria-hidden="true" postId={question.post_id}/>
+                                <span className="font-medium text-gray-900"></span>
+                                <span className="sr-only">likes</span>
+                              </button>
+                            </span>
+                            <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+
+                                <span className="font-medium text-gray-900"></span>
+                                <span className="sr-only">likes</span>
+                              </button>
+                              <CommentDropDown className="h-5 w-5" aria-hidden="true" postId={question.post_id}/>
+                            </span>
+
+                          </div>
+                          <div className="flex text-sm">
+
+                          </div>
+                        </div>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               {/* </center> */}
             </main>
             <aside className="hidden xl:col-span-4 xl:block">
