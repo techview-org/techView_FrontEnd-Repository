@@ -1,6 +1,9 @@
 .inputField {
     display: flex;
+<<<<<<< HEAD
     /* background-color: white; */
+=======
+>>>>>>> fcab84d11b2ad4c974bb8a234fc6f423f4071e05
     justify-content: space-between;
     align-content: center;
     width: 500px;

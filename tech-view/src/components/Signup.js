@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import './Signup.css'
+=======
+import './Signup.css';
+>>>>>>> fcab84d11b2ad4c974bb8a234fc6f423f4071e05
 import Navbar from './Navbar'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -89,7 +93,10 @@ export default function SignUp() {
           <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
+<<<<<<< HEAD
 
+=======
+>>>>>>> fcab84d11b2ad4c974bb8a234fc6f423f4071e05
               <label style={{ opacity: "0.5", textSize: '34px'}} htmlFor="searchInput">User Name:</label>
               <div className="userNameBox">
                 <div className='userName1'>

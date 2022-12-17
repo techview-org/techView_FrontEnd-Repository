@@ -33,9 +33,9 @@ export default function Dropdown({ setIsFiltered, setCategory }) {
 
   return (
     <div style={mainDivStyling}>
-      <button style={buttonStyling}>Behavioral</button>
-      <button style={buttonStyling}>Technical</button>
-      <button style={buttonStyling}>LeetCode 75</button>
+      <button style={buttonStyling} onClick={setFilter}>Behavioral</button>
+      <button style={buttonStyling} onClick={setFilter}>Technical</button>
+      <button style={buttonStyling} onClick={setFilter}>LeetCode 75</button>
     </div>
   )
 }
