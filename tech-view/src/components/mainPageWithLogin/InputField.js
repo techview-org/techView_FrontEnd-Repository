@@ -51,10 +51,6 @@ export default function InputField({ isClicked, setIsClicked, loadPost }) {
              </select>
             <textarea className='detailsField' placeholder="What are the details of your problem?" onChange={(e) => { setDescription(e.target.value) }}></textarea>
             <br></br>
-<<<<<<< HEAD
-            
-            <button className="postButton" onClick={() => { createPost() }}>Post!</button>
-=======
             <select>
                 <option>Behavioral</option>
                 <option>Technical</option>
@@ -62,7 +58,6 @@ export default function InputField({ isClicked, setIsClicked, loadPost }) {
             </select>
             <br></br>
             <button className="postButton" onClick={() => {setIsClicked(true)}}>Post!</button>
->>>>>>> fcab84d11b2ad4c974bb8a234fc6f423f4071e05
         </div>
     )
 }

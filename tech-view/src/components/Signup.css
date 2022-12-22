@@ -6,12 +6,7 @@
 
 .userName1{
     padding-right: 10px;
-<<<<<<< HEAD
-    /* border: 2px solid; */
-    border-style: groove;
-=======
     border: 2px solid;
->>>>>>> fcab84d11b2ad4c974bb8a234fc6f423f4071e05
     border-radius: 90px;
     height: 50px;
     display: flex;
